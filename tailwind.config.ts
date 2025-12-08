@@ -47,16 +47,21 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        wheat: {
+          DEFAULT: "hsl(var(--wheat))",
+          light: "hsl(var(--wheat-light))",
+          dark: "hsl(var(--wheat-dark))",
         },
+        cream: "hsl(var(--cream))",
+        "deep-red": {
+          DEFAULT: "hsl(var(--deep-red))",
+          light: "hsl(var(--deep-red-light))",
+        },
+        charcoal: "hsl(var(--charcoal))",
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        display: ['Playfair Display', 'serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,25 +70,28 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        shimmer: "shimmer 3s linear infinite",
+      },
+      boxShadow: {
+        'soft': '0 2px 8px hsl(30 10% 20% / 0.06)',
+        'medium': '0 8px 24px hsl(30 10% 20% / 0.1)',
+        'elevated': '0 16px 48px hsl(30 10% 20% / 0.15)',
+        'glow': '0 0 40px hsl(42 85% 55% / 0.3)',
       },
     },
   },
