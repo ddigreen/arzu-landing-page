@@ -16,10 +16,12 @@ const Header = () => {
 
   const navLinks = [
     { name: "Home", href: "#home" },
-    { name: "Products", href: "#products" },
     { name: "About", href: "#about" },
+    { name: "Brands", href: "#brands" },
+    { name: "Strategy", href: "#strategy" },
+    { name: "Products", href: "#products" },
     { name: "Recipes", href: "#recipes" },
-    { name: "Contacts", href: "#contacts" },
+    { name: "Partners", href: "#partners" },
   ];
 
   return (
@@ -41,12 +43,16 @@ const Header = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <a
                   href={link.href}
-                  className="text-foreground/80 font-medium hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full"
+                  className={`font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full ${
+                    isScrolled
+                      ? "text-foreground/80 hover:text-primary"
+                      : "text-card/90 hover:text-primary"
+                  }`}
                 >
                   {link.name}
                 </a>
@@ -56,15 +62,21 @@ const Header = () => {
 
           {/* CTA Button */}
           <Button
-            className="hidden md:inline-flex btn-secondary"
-            onClick={() => document.getElementById("contacts")?.scrollIntoView({ behavior: "smooth" })}
+            className="hidden lg:inline-flex btn-secondary"
+            onClick={() =>
+              document
+                .getElementById("contacts")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             Contact Us
           </Button>
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden p-2 text-foreground"
+            className={`lg:hidden p-2 ${
+              isScrolled ? "text-foreground" : "text-card"
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -74,7 +86,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-20 left-0 right-0 bg-card shadow-medium animate-fade-up">
+          <div className="lg:hidden absolute top-20 left-0 right-0 bg-card shadow-medium animate-fade-up">
             <ul className="flex flex-col py-4">
               {navLinks.map((link) => (
                 <li key={link.name}>
@@ -92,7 +104,9 @@ const Header = () => {
                   className="w-full btn-secondary"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
-                    document.getElementById("contacts")?.scrollIntoView({ behavior: "smooth" });
+                    document
+                      .getElementById("contacts")
+                      ?.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
                   Contact Us
