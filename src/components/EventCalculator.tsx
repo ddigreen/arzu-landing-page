@@ -1,0 +1,243 @@
+import { useState, useMemo } from "react";
+import { motion } from "framer-motion";
+import { Slider } from "@/components/ui/slider";
+import { Users, Beef, Package, Salad, ShoppingCart, Flame } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+
+const EventCalculator = () => {
+  const [guests, setGuests] = useState(10);
+  const [bigAppetite, setBigAppetite] = useState(false);
+  const { toast } = useToast();
+
+  const calculations = useMemo(() => {
+    const appetiteMultiplier = bigAppetite ? 1.5 : 1;
+    
+    // Standard: 150g pasta per person, 300g meat per person
+    const pastaPerPerson = 150 * appetiteMultiplier; // grams
+    const meatPerPerson = 300 * appetiteMultiplier; // grams
+    const onionsPerPerson = 50 * appetiteMultiplier; // grams
+    const potatoesPerPerson = 100 * appetiteMultiplier; // grams
+    
+    const totalPasta = (guests * pastaPerPerson) / 1000; // kg
+    const totalMeat = (guests * meatPerPerson) / 1000; // kg
+    const totalOnions = (guests * onionsPerPerson) / 1000; // kg
+    const totalPotatoes = (guests * potatoesPerPerson) / 1000; // kg
+    
+    // Arzu Classic is 900g
+    const packsNeeded = Math.ceil((totalPasta * 1000) / 900);
+    
+    return {
+      packs: packsNeeded,
+      meat: totalMeat.toFixed(1),
+      onions: totalOnions.toFixed(1),
+      potatoes: totalPotatoes.toFixed(1),
+    };
+  }, [guests, bigAppetite]);
+
+  const handleAddToList = () => {
+    toast({
+      title: "Added to Shopping List! 🛒",
+      description: `${calculations.packs} packs of Arzu Classic, ${calculations.meat}kg meat, ${calculations.onions}kg onions, ${calculations.potatoes}kg potatoes`,
+    });
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.4 },
+    },
+  };
+
+  return (
+    <section className="section-padding bg-gradient-to-b from-accent/30 to-background">
+      <div className="container-wide">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+        >
+          {/* Header */}
+          <div className="text-center mb-12">
+            <motion.span
+              className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4"
+              variants={itemVariants}
+            >
+              Plan Your Feast
+            </motion.span>
+            <motion.h2
+              className="font-display text-4xl md:text-5xl text-foreground mb-4"
+              variants={itemVariants}
+            >
+              Калькулятор Бешбармака
+            </motion.h2>
+            <motion.p
+              className="text-muted-foreground text-lg max-w-2xl mx-auto"
+              variants={itemVariants}
+            >
+              Calculate exactly how much you need for the perfect feast
+            </motion.p>
+          </div>
+
+          {/* Calculator Card */}
+          <motion.div
+            className="max-w-4xl mx-auto bg-card rounded-2xl shadow-elevated p-8 md:p-12"
+            variants={itemVariants}
+          >
+            {/* Inputs */}
+            <div className="space-y-8 mb-12">
+              {/* Guest Slider */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <label className="flex items-center gap-2 text-lg font-medium text-foreground">
+                    <Users className="w-5 h-5 text-primary" />
+                    Number of Guests
+                  </label>
+                  <motion.span
+                    key={guests}
+                    initial={{ scale: 1.2, color: "hsl(var(--primary))" }}
+                    animate={{ scale: 1, color: "hsl(var(--foreground))" }}
+                    className="text-3xl font-bold"
+                  >
+                    {guests}
+                  </motion.span>
+                </div>
+                <Slider
+                  value={[guests]}
+                  onValueChange={(value) => setGuests(value[0])}
+                  min={5}
+                  max={100}
+                  step={1}
+                  className="py-4"
+                />
+                <div className="flex justify-between text-sm text-muted-foreground">
+                  <span>5 guests</span>
+                  <span>100 guests</span>
+                </div>
+              </div>
+
+              {/* Appetite Toggle */}
+              <div className="flex items-center justify-between p-4 bg-muted/50 rounded-xl">
+                <div className="flex items-center gap-3">
+                  <Flame className={`w-5 h-5 transition-colors ${bigAppetite ? "text-secondary" : "text-muted-foreground"}`} />
+                  <div>
+                    <p className="font-medium text-foreground">Hunger Level</p>
+                    <p className="text-sm text-muted-foreground">
+                      {bigAppetite ? "Big Appetite (+50%)" : "Normal Portions"}
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setBigAppetite(!bigAppetite)}
+                  className={`relative w-16 h-8 rounded-full transition-colors duration-300 ${
+                    bigAppetite ? "bg-secondary" : "bg-border"
+                  }`}
+                >
+                  <motion.div
+                    className="absolute top-1 w-6 h-6 bg-card rounded-full shadow-md"
+                    animate={{ left: bigAppetite ? "calc(100% - 28px)" : "4px" }}
+                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                  />
+                </button>
+              </div>
+            </div>
+
+            {/* Results Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              {[
+                {
+                  icon: Package,
+                  value: calculations.packs,
+                  label: "Packs Arzu Classic",
+                  sublabel: "(900g each)",
+                  color: "text-primary",
+                  bgColor: "bg-primary/10",
+                },
+                {
+                  icon: Beef,
+                  value: `${calculations.meat} kg`,
+                  label: "Meat",
+                  sublabel: "(Lamb + Beef)",
+                  color: "text-secondary",
+                  bgColor: "bg-secondary/10",
+                },
+                {
+                  icon: Salad,
+                  value: `${calculations.onions} kg`,
+                  label: "Onions",
+                  sublabel: "",
+                  color: "text-wheat-dark",
+                  bgColor: "bg-wheat/10",
+                },
+                {
+                  icon: Salad,
+                  value: `${calculations.potatoes} kg`,
+                  label: "Potatoes",
+                  sublabel: "",
+                  color: "text-wheat-dark",
+                  bgColor: "bg-wheat/10",
+                },
+              ].map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  className="bg-muted/30 rounded-xl p-6 text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <div className={`inline-flex items-center justify-center w-12 h-12 ${item.bgColor} rounded-full mb-3`}>
+                    <item.icon className={`w-6 h-6 ${item.color}`} />
+                  </div>
+                  <motion.p
+                    key={item.value}
+                    initial={{ scale: 1.1 }}
+                    animate={{ scale: 1 }}
+                    className="text-2xl md:text-3xl font-bold text-foreground mb-1"
+                  >
+                    {item.value}
+                  </motion.p>
+                  <p className="text-sm font-medium text-foreground">{item.label}</p>
+                  {item.sublabel && (
+                    <p className="text-xs text-muted-foreground">{item.sublabel}</p>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+
+            {/* CTA Button */}
+            <motion.div
+              className="text-center"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Button
+                onClick={handleAddToList}
+                className="btn-primary text-lg px-8 py-6 gap-3"
+              >
+                <ShoppingCart className="w-5 h-5" />
+                Add to Shopping List
+              </Button>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default EventCalculator;
