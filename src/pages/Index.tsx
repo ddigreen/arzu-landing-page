@@ -9,12 +9,14 @@ import RecipesSection from "@/components/RecipesSection";
 import PartnersSection from "@/components/PartnersSection";
 import EventCalculator from "@/components/EventCalculator";
 import Footer from "@/components/Footer";
+import OyuBackground from "@/components/OyuBackground";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <OyuBackground />
       <Header />
-      <main>
+      <main className="relative z-10">
         <HeroSlider />
         <AboutSection />
         <ProductionTimeline />
