@@ -12,21 +12,15 @@ const EventCalculator = () => {
 
   const calculations = useMemo(() => {
     const appetiteMultiplier = bigAppetite ? 1.5 : 1;
-    
-    // Standard: 150g pasta per person, 300g meat per person
-    const pastaPerPerson = 150 * appetiteMultiplier; // grams
-    const meatPerPerson = 300 * appetiteMultiplier; // grams
-    const onionsPerPerson = 50 * appetiteMultiplier; // grams
-    const potatoesPerPerson = 100 * appetiteMultiplier; // grams
-    
-    const totalPasta = (guests * pastaPerPerson) / 1000; // kg
-    const totalMeat = (guests * meatPerPerson) / 1000; // kg
-    const totalOnions = (guests * onionsPerPerson) / 1000; // kg
-    const totalPotatoes = (guests * potatoesPerPerson) / 1000; // kg
-    
-    // Arzu Classic is 900g
+    const pastaPerPerson = 150 * appetiteMultiplier;
+    const meatPerPerson = 300 * appetiteMultiplier;
+    const onionsPerPerson = 50 * appetiteMultiplier;
+    const potatoesPerPerson = 100 * appetiteMultiplier;
+    const totalPasta = (guests * pastaPerPerson) / 1000;
+    const totalMeat = (guests * meatPerPerson) / 1000;
+    const totalOnions = (guests * onionsPerPerson) / 1000;
+    const totalPotatoes = (guests * potatoesPerPerson) / 1000;
     const packsNeeded = Math.ceil((totalPasta * 1000) / 900);
-    
     return {
       packs: packsNeeded,
       meat: totalMeat.toFixed(1),
@@ -37,30 +31,19 @@ const EventCalculator = () => {
 
   const handleAddToList = () => {
     toast({
-      title: "Added to Shopping List! 🛒",
-      description: `${calculations.packs} packs of Arzu Classic, ${calculations.meat}kg meat, ${calculations.onions}kg onions, ${calculations.potatoes}kg potatoes`,
+      title: "Добавлено в список покупок! 🛒",
+      description: `${calculations.packs} уп. Arzu Classic, ${calculations.meat} кг мяса, ${calculations.onions} кг лука, ${calculations.potatoes} кг картофеля`,
     });
   };
 
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        staggerChildren: 0.1,
-      },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, staggerChildren: 0.1 } },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.4 },
-    },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.4 } },
   };
 
   return (
@@ -72,13 +55,12 @@ const EventCalculator = () => {
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
         >
-          {/* Header */}
           <div className="text-center mb-12">
             <motion.span
               className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4"
               variants={itemVariants}
             >
-              Plan Your Feast
+              Планируйте праздник
             </motion.span>
             <motion.h2
               className="font-display text-4xl md:text-5xl text-foreground mb-4"
@@ -90,23 +72,20 @@ const EventCalculator = () => {
               className="text-muted-foreground text-lg max-w-2xl mx-auto"
               variants={itemVariants}
             >
-              Calculate exactly how much you need for the perfect feast
+              Рассчитайте точное количество продуктов для идеального тоя
             </motion.p>
           </div>
 
-          {/* Calculator Card */}
           <motion.div
             className="max-w-4xl mx-auto bg-card rounded-2xl shadow-elevated p-8 md:p-12"
             variants={itemVariants}
           >
-            {/* Inputs */}
             <div className="space-y-8 mb-12">
-              {/* Guest Slider */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <label className="flex items-center gap-2 text-lg font-medium text-foreground">
                     <Users className="w-5 h-5 text-primary" />
-                    Number of Guests
+                    Количество гостей
                   </label>
                   <motion.span
                     key={guests}
@@ -126,19 +105,18 @@ const EventCalculator = () => {
                   className="py-4"
                 />
                 <div className="flex justify-between text-sm text-muted-foreground">
-                  <span>5 guests</span>
-                  <span>100 guests</span>
+                  <span>5 гостей</span>
+                  <span>100 гостей</span>
                 </div>
               </div>
 
-              {/* Appetite Toggle */}
               <div className="flex items-center justify-between p-4 bg-muted/50 rounded-xl">
                 <div className="flex items-center gap-3">
                   <Flame className={`w-5 h-5 transition-colors ${bigAppetite ? "text-secondary" : "text-muted-foreground"}`} />
                   <div>
-                    <p className="font-medium text-foreground">Hunger Level</p>
+                    <p className="font-medium text-foreground">Уровень аппетита</p>
                     <p className="text-sm text-muted-foreground">
-                      {bigAppetite ? "Big Appetite (+50%)" : "Normal Portions"}
+                      {bigAppetite ? "Большой аппетит (+50%)" : "Обычные порции"}
                     </p>
                   </div>
                 </div>
@@ -157,41 +135,12 @@ const EventCalculator = () => {
               </div>
             </div>
 
-            {/* Results Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
               {[
-                {
-                  icon: Package,
-                  value: calculations.packs,
-                  label: "Packs Arzu Classic",
-                  sublabel: "(900g each)",
-                  color: "text-primary",
-                  bgColor: "bg-primary/10",
-                },
-                {
-                  icon: Beef,
-                  value: `${calculations.meat} kg`,
-                  label: "Meat",
-                  sublabel: "(Lamb + Beef)",
-                  color: "text-secondary",
-                  bgColor: "bg-secondary/10",
-                },
-                {
-                  icon: Salad,
-                  value: `${calculations.onions} kg`,
-                  label: "Onions",
-                  sublabel: "",
-                  color: "text-wheat-dark",
-                  bgColor: "bg-wheat/10",
-                },
-                {
-                  icon: Salad,
-                  value: `${calculations.potatoes} kg`,
-                  label: "Potatoes",
-                  sublabel: "",
-                  color: "text-wheat-dark",
-                  bgColor: "bg-wheat/10",
-                },
+                { icon: Package, value: calculations.packs, label: "Уп. Arzu Classic", sublabel: "(900 г)", color: "text-primary", bgColor: "bg-primary/10" },
+                { icon: Beef, value: `${calculations.meat} кг`, label: "Мясо", sublabel: "(баранина + говядина)", color: "text-secondary", bgColor: "bg-secondary/10" },
+                { icon: Salad, value: `${calculations.onions} кг`, label: "Лук", sublabel: "", color: "text-wheat-dark", bgColor: "bg-wheat/10" },
+                { icon: Salad, value: `${calculations.potatoes} кг`, label: "Картофель", sublabel: "", color: "text-wheat-dark", bgColor: "bg-wheat/10" },
               ].map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -219,18 +168,10 @@ const EventCalculator = () => {
               ))}
             </div>
 
-            {/* CTA Button */}
-            <motion.div
-              className="text-center"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Button
-                onClick={handleAddToList}
-                className="btn-primary text-lg px-8 py-6 gap-3"
-              >
+            <motion.div className="text-center" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <Button onClick={handleAddToList} className="btn-primary text-lg px-8 py-6 gap-3">
                 <ShoppingCart className="w-5 h-5" />
-                Add to Shopping List
+                Добавить в список покупок
               </Button>
             </motion.div>
           </motion.div>

@@ -15,13 +15,12 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Brands", href: "#brands" },
-    { name: "Strategy", href: "#strategy" },
-    { name: "Products", href: "#products" },
-    { name: "Recipes", href: "#recipes" },
-    { name: "Partners", href: "#partners" },
+    { name: "Главная", href: "#home" },
+    { name: "О нас", href: "#about" },
+    { name: "Стратегия", href: "#strategy" },
+    { name: "Продукция", href: "#products" },
+    { name: "Рецепты", href: "#recipes" },
+    { name: "Партнёры", href: "#partners" },
   ];
 
   return (
@@ -34,7 +33,6 @@ const Header = () => {
     >
       <div className="container-wide">
         <nav className="flex items-center justify-between h-20">
-          {/* Logo */}
           <a
             href="#home"
             className="text-3xl font-display font-bold tracking-wider text-primary transition-colors hover:text-primary/80"
@@ -42,7 +40,6 @@ const Header = () => {
             ARZU
           </a>
 
-          {/* Desktop Navigation */}
           <ul className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <li key={link.name}>
@@ -60,7 +57,6 @@ const Header = () => {
             ))}
           </ul>
 
-          {/* CTA Button */}
           <Button
             className="hidden lg:inline-flex btn-secondary"
             onClick={() =>
@@ -69,22 +65,20 @@ const Header = () => {
                 ?.scrollIntoView({ behavior: "smooth" })
             }
           >
-            Contact Us
+            Связаться
           </Button>
 
-          {/* Mobile Menu Toggle */}
           <button
             className={`lg:hidden p-2 ${
               isScrolled ? "text-foreground" : "text-card"
             }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label="Меню"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </nav>
 
-        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="lg:hidden absolute top-20 left-0 right-0 bg-card shadow-medium animate-fade-up">
             <ul className="flex flex-col py-4">
@@ -109,7 +103,7 @@ const Header = () => {
                       ?.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
-                  Contact Us
+                  Связаться
                 </Button>
               </li>
             </ul>

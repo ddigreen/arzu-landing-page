@@ -7,21 +7,21 @@ import sliderFactory from "@/assets/slider-factory.jpg";
 const slides = [
   {
     image: heroImage,
-    title: "National Traditions",
-    subtitle: "On Your Table",
-    description: "Leading manufacturer of pasta products in Kazakhstan since 2002",
+    title: "Народные традиции",
+    subtitle: "На вашем столе",
+    description: "Ведущий производитель макаронных изделий в Казахстане с 2002 года",
   },
   {
     image: sliderWheat,
-    title: "Premium Kazakh Wheat",
-    subtitle: "Pure Quality",
-    description: "We use only the finest local wheat for our products",
+    title: "Казахстанская пшеница",
+    subtitle: "Высшее качество",
+    description: "Мы используем только лучшую отечественную пшеницу твёрдых сортов",
   },
   {
     image: sliderFactory,
-    title: "Modern Production",
-    subtitle: "Italian Technology",
-    description: "State-of-the-art equipment combined with traditional recipes",
+    title: "Современное производство",
+    subtitle: "Итальянские технологии",
+    description: "Передовое оборудование в сочетании с традиционными рецептами",
   },
 ];
 
@@ -45,7 +45,6 @@ const HeroSlider = () => {
 
   return (
     <section id="home" className="relative h-screen overflow-hidden">
-      {/* Slides */}
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -60,7 +59,6 @@ const HeroSlider = () => {
             <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/50 to-charcoal/80" />
           </div>
 
-          {/* Content */}
           <div className="relative z-10 h-full flex items-center justify-center">
             <div className="container-wide text-center text-card">
               <div
@@ -70,15 +68,13 @@ const HeroSlider = () => {
                     : "opacity-0 translate-y-8"
                 }`}
               >
-                {/* Badge */}
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 mb-8">
                   <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                   <span className="text-sm font-medium text-primary">
-                    Since 2002
+                    С 2002 года
                   </span>
                 </div>
 
-                {/* Headline */}
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-2 leading-tight">
                   {slide.title}
                 </h1>
@@ -86,12 +82,10 @@ const HeroSlider = () => {
                   {slide.subtitle}
                 </h2>
 
-                {/* Description */}
                 <p className="text-xl md:text-2xl text-card/80 mb-10 max-w-2xl mx-auto font-light">
                   {slide.description}
                 </p>
 
-                {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <button
                     className="btn-primary text-lg px-8 py-4"
@@ -101,7 +95,7 @@ const HeroSlider = () => {
                         ?.scrollIntoView({ behavior: "smooth" })
                     }
                   >
-                    Explore Products
+                    Наша продукция
                   </button>
                   <button
                     className="text-lg px-8 py-4 border border-card/30 rounded-lg text-card hover:bg-card/10 backdrop-blur-sm transition-all"
@@ -111,7 +105,7 @@ const HeroSlider = () => {
                         ?.scrollIntoView({ behavior: "smooth" })
                     }
                   >
-                    Learn More
+                    Подробнее
                   </button>
                 </div>
               </div>
@@ -120,29 +114,21 @@ const HeroSlider = () => {
         </div>
       ))}
 
-      {/* Navigation Arrows */}
       <button
         className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-primary/80 text-primary-foreground flex items-center justify-center hover:bg-primary transition-colors shadow-medium"
-        onClick={() => {
-          setIsAutoPlaying(false);
-          prevSlide();
-        }}
-        aria-label="Previous slide"
+        onClick={() => { setIsAutoPlaying(false); prevSlide(); }}
+        aria-label="Предыдущий слайд"
       >
         <ChevronLeft size={24} />
       </button>
       <button
         className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-primary/80 text-primary-foreground flex items-center justify-center hover:bg-primary transition-colors shadow-medium"
-        onClick={() => {
-          setIsAutoPlaying(false);
-          nextSlide();
-        }}
-        aria-label="Next slide"
+        onClick={() => { setIsAutoPlaying(false); nextSlide(); }}
+        aria-label="Следующий слайд"
       >
         <ChevronRight size={24} />
       </button>
 
-      {/* Slide Indicators */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
         {slides.map((_, index) => (
           <button
@@ -152,11 +138,8 @@ const HeroSlider = () => {
                 ? "bg-primary w-8"
                 : "bg-card/50 hover:bg-card/80"
             }`}
-            onClick={() => {
-              setIsAutoPlaying(false);
-              setCurrentSlide(index);
-            }}
-            aria-label={`Go to slide ${index + 1}`}
+            onClick={() => { setIsAutoPlaying(false); setCurrentSlide(index); }}
+            aria-label={`Слайд ${index + 1}`}
           />
         ))}
       </div>

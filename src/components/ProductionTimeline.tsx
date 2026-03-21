@@ -5,34 +5,26 @@ import { Wheat, Cog, FlaskConical, CheckCircle2, Award } from "lucide-react";
 const timelineSteps = [
   {
     icon: Wheat,
-    title: "Golden Wheat",
-    titleRu: "Золотая Пшеница",
-    description: "Only hard wheat varieties from Northern Kazakhstan",
-    descriptionRu: "Только твёрдые сорта пшеницы из Северного Казахстана",
+    title: "Золотая пшеница",
+    description: "Только твёрдые сорта пшеницы из Северного Казахстана",
     color: "primary",
   },
   {
     icon: Cog,
-    title: "Swiss & Italian Technology",
-    titleRu: "Швейцарские и Итальянские Технологии",
-    description: "Bühler & Pavan automated production lines",
-    descriptionRu: "Автоматизированные линии Bühler & Pavan",
+    title: "Швейцарские и итальянские технологии",
+    description: "Автоматизированные линии Bühler & Pavan",
     color: "wheat-dark",
   },
   {
     icon: FlaskConical,
-    title: "Laboratory Control",
-    titleRu: "Лабораторный Контроль",
-    description: "Triple quality check before packaging",
-    descriptionRu: "Тройной контроль качества перед упаковкой",
+    title: "Лабораторный контроль",
+    description: "Тройной контроль качества перед упаковкой",
     color: "secondary",
   },
   {
     icon: Award,
-    title: "Premium Quality",
-    titleRu: "Премиум Качество",
-    description: "Certified excellence delivered to your table",
-    descriptionRu: "Сертифицированное качество на вашем столе",
+    title: "Премиум качество",
+    description: "Сертифицированное качество на вашем столе",
     color: "primary",
   },
 ];
@@ -48,27 +40,17 @@ const ProductionTimeline = () => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.3 } },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6, ease: "easeOut" as const },
-    },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
   };
 
   return (
     <section className="section-padding bg-muted/30 overflow-hidden">
       <div className="container-wide">
-        {/* Header */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -77,19 +59,17 @@ const ProductionTimeline = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-            Farm to Table
+            От поля до стола
           </span>
           <h2 className="font-display text-4xl md:text-5xl text-foreground mb-4">
-            Our Quality Standard
+            Наш стандарт качества
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            From the golden fields to your kitchen — every step is crafted with care
+            От золотых полей до вашей кухни — каждый этап создан с заботой
           </p>
         </motion.div>
 
-        {/* Timeline */}
         <div ref={containerRef} className="relative max-w-3xl mx-auto">
-          {/* Animated Line */}
           <div className="absolute left-8 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-border">
             <motion.div
               className="absolute top-0 left-0 right-0 bg-gradient-to-b from-primary via-wheat to-primary origin-top"
@@ -97,7 +77,6 @@ const ProductionTimeline = () => {
             />
           </div>
 
-          {/* Steps */}
           <motion.div
             className="relative space-y-16"
             variants={containerVariants}
@@ -108,7 +87,7 @@ const ProductionTimeline = () => {
             {timelineSteps.map((step, index) => {
               const Icon = step.icon;
               const isEven = index % 2 === 0;
-              
+
               return (
                 <motion.div
                   key={step.title}
@@ -117,7 +96,6 @@ const ProductionTimeline = () => {
                   }`}
                   variants={itemVariants}
                 >
-                  {/* Icon Circle */}
                   <motion.div
                     className="absolute left-8 md:left-1/2 -translate-x-1/2 z-10"
                     whileInView={{ scale: [0, 1.2, 1] }}
@@ -127,22 +105,13 @@ const ProductionTimeline = () => {
                     <div className={`w-16 h-16 rounded-full bg-${step.color} flex items-center justify-center shadow-glow`}>
                       <Icon className="w-8 h-8 text-primary-foreground" />
                     </div>
-                    {/* Pulse Effect */}
                     <motion.div
                       className={`absolute inset-0 rounded-full bg-${step.color}/30`}
-                      animate={{
-                        scale: [1, 1.5, 1],
-                        opacity: [0.5, 0, 0.5],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        repeatDelay: 1,
-                      }}
+                      animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
+                      transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
                     />
                   </motion.div>
 
-                  {/* Content Card */}
                   <div className={`w-full md:w-[calc(50%-4rem)] ${isEven ? "md:pr-8 pl-24 md:pl-0" : "md:pl-8 pl-24"}`}>
                     <motion.div
                       className="bg-card p-6 rounded-2xl shadow-medium hover:shadow-elevated transition-shadow duration-300"
@@ -154,8 +123,7 @@ const ProductionTimeline = () => {
                         </span>
                         <h3 className="font-display text-xl text-foreground">{step.title}</h3>
                       </div>
-                      <p className="text-muted-foreground mb-2">{step.description}</p>
-                      <p className="text-sm text-muted-foreground/70 italic">{step.descriptionRu}</p>
+                      <p className="text-muted-foreground">{step.description}</p>
                     </motion.div>
                   </div>
                 </motion.div>
@@ -163,7 +131,6 @@ const ProductionTimeline = () => {
             })}
           </motion.div>
 
-          {/* End Check */}
           <motion.div
             className="absolute left-8 md:left-1/2 -translate-x-1/2 -bottom-8"
             initial={{ opacity: 0, scale: 0 }}
