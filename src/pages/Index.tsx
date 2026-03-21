@@ -18,7 +18,7 @@ const Index = () => {
         <HeroSlider />
         <AboutSection />
         <ProductionTimeline />
-        <BrandsSection />
+        
         <StrategySection />
         <ProductsSection />
         <RecipesSection />
