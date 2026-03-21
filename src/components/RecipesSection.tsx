@@ -7,41 +7,41 @@ import recipeLagman from "@/assets/recipe-lagman.jpg";
 const recipes = [
   {
     id: 1,
-    name: "Beshbarmak",
+    name: "Бешбармак",
     image: recipeBeshbarmak,
-    cookTime: "45 min",
-    difficulty: "Medium",
+    cookTime: "45 мин",
+    difficulty: "Средний",
     steps: [
-      "Boil lamb and beef until tender",
-      "Cut meat into thin slices",
-      "Add Arzu Zhaima, cook 5-7 minutes",
-      "Serve with broth and onions",
+      "Отварить баранину и говядину до готовности",
+      "Нарезать мясо тонкими ломтиками",
+      "Добавить жайму Arzu, варить 5–7 минут",
+      "Подавать с бульоном и луком",
     ],
   },
   {
     id: 2,
-    name: "Lasagna with Zhaima",
+    name: "Лазанья с жаймой",
     image: recipeLasagna,
-    cookTime: "35 min",
-    difficulty: "Easy",
+    cookTime: "35 мин",
+    difficulty: "Лёгкий",
     steps: [
-      "Prepare bolognese sauce",
-      "Layer: sauce, zhaima, mozzarella",
-      "Bake at 180°C for 25 minutes",
-      "Let rest before serving",
+      "Приготовить соус болоньезе",
+      "Чередовать слои: соус, жайма, моцарелла",
+      "Запекать при 180°C в течение 25 минут",
+      "Дать остыть перед подачей",
     ],
   },
   {
     id: 3,
-    name: "Lagman Soup",
+    name: "Суп Лагман",
     image: recipeLagman,
-    cookTime: "40 min",
-    difficulty: "Medium",
+    cookTime: "40 мин",
+    difficulty: "Средний",
     steps: [
-      "Sauté vegetables with meat",
-      "Add broth and simmer",
-      "Cook Lagman noodles separately",
-      "Combine and serve hot",
+      "Обжарить овощи с мясом",
+      "Добавить бульон и тушить",
+      "Отварить лапшу отдельно",
+      "Соединить и подавать горячим",
     ],
   },
 ];
@@ -50,21 +50,19 @@ const RecipesSection = () => {
   return (
     <section id="recipes" className="section-padding bg-muted">
       <div className="container-wide">
-        {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-widest mb-4">
-            Cooking Ideas
+            Кулинарные идеи
           </span>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
-            Traditional Recipes
+            Традиционные рецепты
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover delicious ways to enjoy our pasta products with these
-            authentic Kazakh and international recipes.
+            Откройте для себя вкусные способы приготовления нашей продукции
+            с традиционными казахскими и международными рецептами.
           </p>
         </div>
 
-        {/* Recipes Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {recipes.map((recipe, index) => (
             <article
@@ -72,7 +70,6 @@ const RecipesSection = () => {
               className="group bg-card rounded-2xl overflow-hidden shadow-soft card-hover"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Recipe Image */}
               <div className="relative aspect-square overflow-hidden">
                 <img
                   src={recipe.image}
@@ -97,7 +94,6 @@ const RecipesSection = () => {
                 </div>
               </div>
 
-              {/* Recipe Steps */}
               <div className="p-6">
                 <ol className="space-y-2 mb-6">
                   {recipe.steps.map((step, stepIndex) => (
@@ -116,7 +112,7 @@ const RecipesSection = () => {
                   variant="outline"
                   className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all"
                 >
-                  View Full Recipe
+                  Полный рецепт
                 </Button>
               </div>
             </article>

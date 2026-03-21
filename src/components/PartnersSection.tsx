@@ -1,33 +1,31 @@
 import { Building2 } from "lucide-react";
 
 const partners = [
-  { name: "FoodCorp Kazakhstan", type: "Distributor" },
-  { name: "National Culinary Union", type: "Association" },
-  { name: "Local Markets LLC", type: "Retail" },
-  { name: "Magnum Cash & Carry", type: "Retail" },
-  { name: "Small Wholesale", type: "Wholesale" },
-  { name: "Galmart", type: "Retail" },
+  { name: "FoodCorp Kazakhstan", type: "Дистрибьютор" },
+  { name: "National Culinary Union", type: "Ассоциация" },
+  { name: "Local Markets LLC", type: "Розница" },
+  { name: "Magnum Cash & Carry", type: "Розница" },
+  { name: "Small Wholesale", type: "Опт" },
+  { name: "Galmart", type: "Розница" },
 ];
 
 const PartnersSection = () => {
   return (
     <section id="partners" className="section-padding bg-charcoal text-card">
       <div className="container-wide">
-        {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-widest mb-4">
-            Trusted By
+            Нам доверяют
           </span>
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-            Our Partners
+            Наши партнёры
           </h2>
           <p className="text-lg text-card/70 max-w-2xl mx-auto">
-            We work with leading retailers and distributors across Kazakhstan
-            to bring our products to your table.
+            Мы сотрудничаем с ведущими ритейлерами и дистрибьюторами Казахстана,
+            чтобы наша продукция была на вашем столе.
           </p>
         </div>
 
-        {/* Partners Grid */}
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           {partners.map((partner, index) => (
             <div

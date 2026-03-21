@@ -3,23 +3,23 @@ import { Lightbulb, TrendingUp, Monitor, Globe } from "lucide-react";
 const strategies = [
   {
     icon: Lightbulb,
-    title: "Innovative Technologies",
-    description: "Cutting-edge production methods for superior quality",
+    title: "Инновационные технологии",
+    description: "Передовые методы производства для высшего качества",
   },
   {
     icon: TrendingUp,
-    title: "Market Expansion",
-    description: "Growing our product range and market reach",
+    title: "Расширение рынков",
+    description: "Рост ассортимента и охвата рынков сбыта",
   },
   {
     icon: Monitor,
-    title: "Electronic Quality Control",
-    description: "Digital monitoring for consistent excellence",
+    title: "Электронный контроль качества",
+    description: "Цифровой мониторинг для стабильного результата",
   },
   {
     icon: Globe,
-    title: "International Presence",
-    description: "Participation in global food exhibitions",
+    title: "Международное присутствие",
+    description: "Участие в международных выставках",
   },
 ];
 
@@ -28,20 +28,19 @@ const StrategySection = () => {
     <section id="strategy" className="section-padding bg-background">
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Content */}
           <div>
             <span className="inline-block text-primary font-semibold text-sm uppercase tracking-widest mb-4">
-              Our Approach
+              Наш подход
             </span>
             <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
-              Strategy & Policy
+              Стратегия и политика
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Our marketing philosophy is simple:{" "}
+              Наша маркетинговая философия проста:{" "}
               <strong className="text-foreground">
-                "Quality and quality again"
+                «Качество и ещё раз качество»
               </strong>{" "}
-              — affordable prices for everyone without compromising on excellence.
+              — доступные цены для каждого без компромиссов в качестве.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-6">
@@ -67,31 +66,30 @@ const StrategySection = () => {
             </div>
           </div>
 
-          {/* Stats */}
           <div className="grid grid-cols-2 gap-6">
             <div className="bg-card rounded-2xl p-8 shadow-soft text-center card-hover">
               <div className="text-5xl font-display font-bold text-primary mb-2">
                 20+
               </div>
-              <div className="text-muted-foreground">Years Experience</div>
+              <div className="text-muted-foreground">Лет опыта</div>
             </div>
             <div className="bg-card rounded-2xl p-8 shadow-soft text-center card-hover">
               <div className="text-5xl font-display font-bold text-primary mb-2">
                 50+
               </div>
-              <div className="text-muted-foreground">Products</div>
+              <div className="text-muted-foreground">Продуктов</div>
             </div>
             <div className="bg-card rounded-2xl p-8 shadow-soft text-center card-hover">
               <div className="text-5xl font-display font-bold text-primary mb-2">
                 100+
               </div>
-              <div className="text-muted-foreground">Partners</div>
+              <div className="text-muted-foreground">Партнёров</div>
             </div>
             <div className="bg-card rounded-2xl p-8 shadow-soft text-center card-hover">
               <div className="text-5xl font-display font-bold text-primary mb-2">
                 4
               </div>
-              <div className="text-muted-foreground">ISO Certifications</div>
+              <div className="text-muted-foreground">Сертификата ISO</div>
             </div>
           </div>
         </div>

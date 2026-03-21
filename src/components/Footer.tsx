@@ -7,7 +7,6 @@ const Footer = () => {
     <footer id="contacts" className="bg-charcoal text-card">
       <div className="container-wide section-padding">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand Column */}
           <div className="lg:col-span-1">
             <a
               href="#home"
@@ -16,10 +15,9 @@ const Footer = () => {
               ARZU
             </a>
             <p className="text-card/70 mb-6 leading-relaxed">
-              Ta-Mak LLP - Leading manufacturer of premium pasta products in
-              Kazakhstan since 2002.
+              ТОО «Та-Мак» — ведущий производитель макаронных изделий
+              премиум-класса в Казахстане с 2002 года.
             </p>
-            {/* Social Links */}
             <div className="flex items-center gap-4">
               <a
                 href="#"
@@ -45,18 +43,39 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-card">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-6 text-card">Навигация</h4>
             <ul className="space-y-3">
-              {["Home", "Products", "About", "Recipes", "Contact"].map(
-                (link) => (
-                  <li key={link}>
+              {[
+                { label: "Главная", href: "#home" },
+                { label: "Продукция", href: "#products" },
+                { label: "О нас", href: "#about" },
+                { label: "Рецепты", href: "#recipes" },
+                { label: "Контакты", href: "#contacts" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="text-card/70 hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-semibold mb-6 text-card">Продукция</h4>
+            <ul className="space-y-3">
+              {["Жайма", "Яичная лапша", "Лапша Лагман", "Кеспе", "Спагетти"].map(
+                (product) => (
+                  <li key={product}>
                     <a
-                      href={`#${link.toLowerCase()}`}
+                      href="#products"
                       className="text-card/70 hover:text-primary transition-colors"
                     >
-                      {link}
+                      {product}
                     </a>
                   </li>
                 )
@@ -64,48 +83,24 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Products */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-card">Products</h4>
-            <ul className="space-y-3">
-              {[
-                "Zhaima",
-                "Egg Noodles",
-                "Lagman Noodles",
-                "Kespe",
-                "Spaghetti",
-              ].map((product) => (
-                <li key={product}>
-                  <a
-                    href="#products"
-                    className="text-card/70 hover:text-primary transition-colors"
-                  >
-                    {product}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6 text-card">Contact Us</h4>
+            <h4 className="text-lg font-semibold mb-6 text-card">Контакты</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                 <span className="text-card/70">
-                  Almaty Region, Kazakhstan
+                  Жамбылская область, Казахстан
                   <br />
-                  Industrial Zone, Building 15
+                  г. Тараз, ул. Сорокина, 1В
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
                 <a
-                  href="tel:+77001234567"
+                  href="tel:+77262466363"
                   className="text-card/70 hover:text-primary transition-colors"
                 >
-                  +7 (700) 123-45-67
+                  +7 (7262) 46 63 63
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -121,24 +116,23 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-card/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-card/50 text-sm">
-              © {currentYear} Ta-Mak LLP. All rights reserved.
+              © {currentYear} ТОО «Та-Мак». Все права защищены.
             </p>
             <div className="flex items-center gap-6 text-sm">
               <a
                 href="#"
                 className="text-card/50 hover:text-card transition-colors"
               >
-                Privacy Policy
+                Политика конфиденциальности
               </a>
               <a
                 href="#"
                 className="text-card/50 hover:text-card transition-colors"
               >
-                Terms of Service
+                Условия использования
               </a>
             </div>
           </div>
