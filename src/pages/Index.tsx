@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import HeroSlider from "@/components/HeroSlider";
 import AboutSection from "@/components/AboutSection";
 import ProductionTimeline from "@/components/ProductionTimeline";
-import BrandsSection from "@/components/BrandsSection";
+
 import StrategySection from "@/components/StrategySection";
 import ProductsSection from "@/components/ProductsSection";
 import RecipesSection from "@/components/RecipesSection";
@@ -18,7 +18,7 @@ const Index = () => {
         <HeroSlider />
         <AboutSection />
         <ProductionTimeline />
-        <BrandsSection />
+        
         <StrategySection />
         <ProductsSection />
         <RecipesSection />

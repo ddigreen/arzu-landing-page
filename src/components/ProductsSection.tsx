@@ -9,43 +9,57 @@ import productSpaghetti from "@/assets/product-spaghetti.jpg";
 const products = [
   {
     id: 1,
-    name: "Classic Zhaima",
-    description: "Perfect thin dough for traditional Beshbarmak",
+    name: "Arzu Жайма",
+    weight: "300 г",
+    description: "Тонкое тесто для настоящего Бешбармака. Готовится за 7–9 минут",
     image: productZhaima,
-    badges: ["Top Seller", "400g"],
+    badges: ["Хит продаж"],
     featured: true,
   },
   {
     id: 2,
-    name: "Egg Noodles",
-    description: "Rich egg noodles for soups and stir-fry dishes",
+    name: "Arzu Classic",
+    weight: "900 г",
+    description: "Классическая жайма в семейной упаковке",
     image: productNoodles,
-    badges: ["Premium Grade", "300g"],
+    badges: ["Семейная"],
     featured: false,
   },
   {
     id: 3,
-    name: "Lagman Noodles",
-    description: "Thick chewy noodles for authentic Lagman soup",
+    name: "Arzu Premium",
+    weight: "980 г",
+    description: "Премиальное качество из отборных сортов пшеницы",
     image: productLagman,
-    badges: ["Traditional", "500g"],
+    badges: ["Премиум"],
     featured: true,
   },
   {
     id: 4,
-    name: "Kespe",
-    description: "Short cut noodles perfect for hearty soups",
+    name: "Arzu Опт",
+    weight: "3 кг",
+    description: "Оптовая упаковка для предприятий общественного питания",
     image: productKespe,
-    badges: ["Best for Soup", "350g"],
+    badges: ["Опт"],
     featured: false,
   },
   {
     id: 5,
-    name: "Premium Spaghetti",
-    description: "Italian-style spaghetti made with Kazakh wheat",
+    name: "Астау",
+    weight: "980 г",
+    description: "Традиционный рецепт для настоящих ценителей",
     image: productSpaghetti,
-    badges: ["New", "450g"],
+    badges: ["Традиционная"],
     featured: false,
+  },
+  {
+    id: 6,
+    name: "Астау Семейная",
+    weight: "1.8 кг",
+    description: "Большая упаковка на 24 порции для всей семьи",
+    image: productZhaima,
+    badges: ["24 порции"],
+    featured: true,
   },
 ];
 
@@ -56,14 +70,14 @@ const ProductsSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-widest mb-4">
-            Our Collection
+            Наша продукция
           </span>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
-            Our Production
+            Каталог продукции
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover our range of premium pasta products, crafted with care
-            using the finest Kazakh wheat and traditional recipes.
+            Откройте для себя линейку макаронных изделий премиум-класса,
+            изготовленных из лучших сортов казахстанской пшеницы по традиционным рецептам.
           </p>
         </div>
 
@@ -96,10 +110,16 @@ const ProductsSection = () => {
                 {product.featured && (
                   <div className="absolute top-4 right-4">
                     <Badge className="bg-secondary text-secondary-foreground font-medium px-3 py-1">
-                      Featured
+                      Популярное
                     </Badge>
                   </div>
                 )}
+                {/* Weight Badge */}
+                <div className="absolute bottom-4 right-4">
+                  <Badge className="bg-card/90 text-foreground font-bold px-4 py-2 text-lg backdrop-blur-sm">
+                    {product.weight}
+                  </Badge>
+                </div>
               </div>
 
               {/* Product Info */}
@@ -114,18 +134,11 @@ const ProductsSection = () => {
                   variant="outline"
                   className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all"
                 >
-                  View Details
+                  Узнать больше
                 </Button>
               </div>
             </article>
           ))}
-        </div>
-
-        {/* View All Button */}
-        <div className="text-center mt-12">
-          <Button className="btn-primary text-lg px-10 py-6">
-            View All Products
-          </Button>
         </div>
       </div>
     </section>
