@@ -8,31 +8,34 @@ import heroArzuBrand from "@/assets/hero-arzu-brand.png";
 
 const slides = [
   {
+    image: heroArzuBrand,
+    title: "",
+    subtitle: "",
+    description: "",
+    hideText: true,
+  },
+  {
     image: heroBeshbarmak,
     title: "Народные традиции",
     subtitle: "На вашем столе",
     description: "Ведущий производитель макаронных изделий в Казахстане с 2002 года",
-  },
-  {
-    image: heroArzuBrand,
-    title: "Бренд Arzu",
-    subtitle: "Искусство настоящего вкуса",
-    description: "Макаронные изделия премиум-класса из лучших сортов казахстанской пшеницы",
+    hideText: false,
   },
   {
     image: sliderWheat,
     title: "Казахстанская пшеница",
     subtitle: "Высшее качество",
     description: "Мы используем только лучшую отечественную пшеницу твёрдых сортов",
+    hideText: false,
   },
   {
     image: sliderFactory,
     title: "Современное производство",
     subtitle: "Итальянские технологии",
     description: "Передовое оборудование в сочетании с традиционными рецептами",
+    hideText: false,
   },
 ];
-
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
