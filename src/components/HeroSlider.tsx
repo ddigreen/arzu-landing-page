@@ -8,28 +8,32 @@ import heroArzuBrand from "@/assets/hero-arzu-brand.png";
 
 const slides = [
   {
+    image: heroArzuBrand,
+    title: "",
+    subtitle: "",
+    description: "",
+    hideText: true,
+  },
+  {
     image: heroBeshbarmak,
     title: "Народные традиции",
     subtitle: "На вашем столе",
     description: "Ведущий производитель макаронных изделий в Казахстане с 2002 года",
-  },
-  {
-    image: heroArzuBrand,
-    title: "Бренд Arzu",
-    subtitle: "Искусство настоящего вкуса",
-    description: "Макаронные изделия премиум-класса из лучших сортов казахстанской пшеницы",
+    hideText: false,
   },
   {
     image: sliderWheat,
     title: "Казахстанская пшеница",
     subtitle: "Высшее качество",
     description: "Мы используем только лучшую отечественную пшеницу твёрдых сортов",
+    hideText: false,
   },
   {
     image: sliderFactory,
     title: "Современное производство",
     subtitle: "Итальянские технологии",
     description: "Передовое оборудование в сочетании с традиционными рецептами",
+    hideText: false,
   },
 ];
 
@@ -64,61 +68,65 @@ const HeroSlider = () => {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${slide.image})` }}
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/50 to-charcoal/80" />
+            {!slide.hideText && (
+              <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/50 to-charcoal/80" />
+            )}
           </div>
 
-          <div className="relative z-10 h-full flex items-center justify-center">
-            <div className="container-wide text-center text-card">
-              <div
-                className={`max-w-4xl mx-auto transition-all duration-700 ${
-                  index === currentSlide
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-8"
-                }`}
-              >
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 mb-8">
-                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  <span className="text-sm font-medium text-primary">
-                    С 2002 года
-                  </span>
-                </div>
+          {!slide.hideText && (
+            <div className="relative z-10 h-full flex items-center justify-center">
+              <div className="container-wide text-center text-card">
+                <div
+                  className={`max-w-4xl mx-auto transition-all duration-700 ${
+                    index === currentSlide
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-8"
+                  }`}
+                >
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 mb-8">
+                    <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                    <span className="text-sm font-medium text-primary">
+                      С 2002 года
+                    </span>
+                  </div>
 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-2 leading-tight">
-                  {slide.title}
-                </h1>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 text-primary">
-                  {slide.subtitle}
-                </h2>
+                  <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-2 leading-tight">
+                    {slide.title}
+                  </h1>
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 text-primary">
+                    {slide.subtitle}
+                  </h2>
 
-                <p className="text-xl md:text-2xl text-card/80 mb-10 max-w-2xl mx-auto font-light">
-                  {slide.description}
-                </p>
+                  <p className="text-xl md:text-2xl text-card/80 mb-10 max-w-2xl mx-auto font-light">
+                    {slide.description}
+                  </p>
 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <button
-                    className="btn-primary text-lg px-8 py-4"
-                    onClick={() =>
-                      document
-                        .getElementById("products")
-                        ?.scrollIntoView({ behavior: "smooth" })
-                    }
-                  >
-                    Наша продукция
-                  </button>
-                  <button
-                    className="text-lg px-8 py-4 border border-card/30 rounded-lg text-card hover:bg-card/10 backdrop-blur-sm transition-all"
-                    onClick={() =>
-                      document
-                        .getElementById("about")
-                        ?.scrollIntoView({ behavior: "smooth" })
-                    }
-                  >
-                    Подробнее
-                  </button>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button
+                      className="btn-primary text-lg px-8 py-4"
+                      onClick={() =>
+                        document
+                          .getElementById("products")
+                          ?.scrollIntoView({ behavior: "smooth" })
+                      }
+                    >
+                      Наша продукция
+                    </button>
+                    <button
+                      className="text-lg px-8 py-4 border border-card/30 rounded-lg text-card hover:bg-card/10 backdrop-blur-sm transition-all"
+                      onClick={() =>
+                        document
+                          .getElementById("about")
+                          ?.scrollIntoView({ behavior: "smooth" })
+                      }
+                    >
+                      Подробнее
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       ))}
 
