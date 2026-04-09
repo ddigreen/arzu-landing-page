@@ -3,13 +3,21 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import heroImage from "@/assets/hero-beshbarmak.jpg";
 import sliderWheat from "@/assets/slider-wheat.jpg";
 import sliderFactory from "@/assets/slider-factory.jpg";
+import heroBeshbarmak from "@/assets/hero-beshbarmak.png";
+import heroArzuBrand from "@/assets/hero-arzu-brand.png";
 
 const slides = [
   {
-    image: heroImage,
+    image: heroBeshbarmak,
     title: "Народные традиции",
     subtitle: "На вашем столе",
     description: "Ведущий производитель макаронных изделий в Казахстане с 2002 года",
+  },
+  {
+    image: heroArzuBrand,
+    title: "Бренд Arzu",
+    subtitle: "Искусство настоящего вкуса",
+    description: "Макаронные изделия премиум-класса из лучших сортов казахстанской пшеницы",
   },
   {
     image: sliderWheat,
