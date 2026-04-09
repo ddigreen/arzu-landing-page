@@ -67,9 +67,10 @@ const HeroSlider = () => {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${slide.image})` }}
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/50 to-charcoal/80" />
+            {!slide.hideText && <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/50 to-charcoal/80" />}
           </div>
 
+          {!slide.hideText && (
           <div className="relative z-10 h-full flex items-center justify-center">
             <div className="container-wide text-center text-card">
               <div
