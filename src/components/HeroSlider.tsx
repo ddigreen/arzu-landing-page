@@ -120,9 +120,9 @@ const HeroSlider = () => {
                     Подробнее
                   </button>
                 </div>
-              </div>
             </div>
           </div>
+          )}
         </div>
       ))}
 
