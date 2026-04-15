@@ -285,6 +285,19 @@ const ProductsSection = () => {
             </article>
           ))}
         </div>
+
+        {hasMore && !showAll && (
+          <div className="text-center mt-10">
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all px-8"
+              onClick={() => setShowAll(true)}
+            >
+              Показать ещё
+            </Button>
+          </div>
+        )}
       </div>
 
       <Dialog open={!!selectedProduct} onOpenChange={() => setSelectedProduct(null)}>
