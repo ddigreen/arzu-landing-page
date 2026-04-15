@@ -183,13 +183,19 @@ const products = [
 
 const categories = ["Все", "Жайма", "Лапша", "Мука"];
 
+const INITIAL_VISIBLE = 6;
+
 const ProductsSection = () => {
   const [selectedProduct, setSelectedProduct] = useState<typeof products[0] | null>(null);
   const [activeCategory, setActiveCategory] = useState("Все");
+  const [showAll, setShowAll] = useState(false);
 
   const filteredProducts = activeCategory === "Все"
     ? products
     : products.filter((p) => p.category === activeCategory);
+
+  const visibleProducts = showAll ? filteredProducts : filteredProducts.slice(0, INITIAL_VISIBLE);
+  const hasMore = filteredProducts.length > INITIAL_VISIBLE;
 
   return (
     <section id="products" className="section-padding bg-background">
