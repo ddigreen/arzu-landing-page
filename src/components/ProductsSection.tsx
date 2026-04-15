@@ -183,13 +183,19 @@ const products = [
 
 const categories = ["Все", "Жайма", "Лапша", "Мука"];
 
+const INITIAL_VISIBLE = 6;
+
 const ProductsSection = () => {
   const [selectedProduct, setSelectedProduct] = useState<typeof products[0] | null>(null);
   const [activeCategory, setActiveCategory] = useState("Все");
+  const [showAll, setShowAll] = useState(false);
 
   const filteredProducts = activeCategory === "Все"
     ? products
     : products.filter((p) => p.category === activeCategory);
+
+  const visibleProducts = showAll ? filteredProducts : filteredProducts.slice(0, INITIAL_VISIBLE);
+  const hasMore = filteredProducts.length > INITIAL_VISIBLE;
 
   return (
     <section id="products" className="section-padding bg-background">
@@ -210,7 +216,7 @@ const ProductsSection = () => {
             {categories.map((cat) => (
               <button
                 key={cat}
-                onClick={() => setActiveCategory(cat)}
+                onClick={() => { setActiveCategory(cat); setShowAll(false); }}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeCategory === cat
                     ? "bg-primary text-primary-foreground shadow-md"
@@ -224,7 +230,7 @@ const ProductsSection = () => {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProducts.map((product, index) => (
+          {visibleProducts.map((product, index) => (
             <article
               key={product.id}
               className="group bg-card rounded-2xl overflow-hidden shadow-soft card-hover"
@@ -279,6 +285,19 @@ const ProductsSection = () => {
             </article>
           ))}
         </div>
+
+        {hasMore && !showAll && (
+          <div className="text-center mt-10">
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all px-8"
+              onClick={() => setShowAll(true)}
+            >
+              Показать ещё
+            </Button>
+          </div>
+        )}
       </div>
 
       <Dialog open={!!selectedProduct} onOpenChange={() => setSelectedProduct(null)}>
