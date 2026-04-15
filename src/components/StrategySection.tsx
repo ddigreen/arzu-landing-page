@@ -1,4 +1,5 @@
 import { Lightbulb, TrendingUp, Monitor, Globe } from "lucide-react";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 const strategies = [
   {
@@ -21,6 +22,13 @@ const strategies = [
     title: "Международное присутствие",
     description: "Участие в международных выставках",
   },
+];
+
+const stats = [
+  { value: 20, suffix: "+", label: "Лет опыта" },
+  { value: 50, suffix: "+", label: "Продуктов" },
+  { value: 100, suffix: "+", label: "Партнёров" },
+  { value: 4, suffix: "", label: "Сертификата ISO" },
 ];
 
 const StrategySection = () => {
@@ -67,30 +75,17 @@ const StrategySection = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-6">
-            <div className="bg-card/10 backdrop-blur-sm rounded-2xl p-8 shadow-soft text-center card-hover border border-card/20">
-              <div className="text-5xl font-display font-bold text-primary mb-2">
-                20+
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="bg-card/10 backdrop-blur-sm rounded-2xl p-8 shadow-soft text-center card-hover border border-card/20"
+              >
+                <div className="text-5xl font-display font-bold text-primary mb-2">
+                  <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+                </div>
+                <div className="text-card/80">{stat.label}</div>
               </div>
-              <div className="text-card/80">Лет опыта</div>
-            </div>
-            <div className="bg-card/10 backdrop-blur-sm rounded-2xl p-8 shadow-soft text-center card-hover border border-card/20">
-              <div className="text-5xl font-display font-bold text-primary mb-2">
-                50+
-              </div>
-              <div className="text-card/80">Продуктов</div>
-            </div>
-            <div className="bg-card/10 backdrop-blur-sm rounded-2xl p-8 shadow-soft text-center card-hover border border-card/20">
-              <div className="text-5xl font-display font-bold text-primary mb-2">
-                100+
-              </div>
-              <div className="text-card/80">Партнёров</div>
-            </div>
-            <div className="bg-card/10 backdrop-blur-sm rounded-2xl p-8 shadow-soft text-center card-hover border border-card/20">
-              <div className="text-5xl font-display font-bold text-primary mb-2">
-                4
-              </div>
-              <div className="text-card/80">Сертификата ISO</div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
