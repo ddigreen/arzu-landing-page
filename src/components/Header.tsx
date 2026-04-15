@@ -85,7 +85,7 @@ const Header = () => {
           </Button>
 
           <button
-            className={`lg:hidden p-2 relative z-50 ${
+            className={`lg:hidden p-2 relative z-[80] ${
               isMobileMenuOpen ? "text-foreground" : isScrolled ? "text-foreground" : "text-card"
             }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
