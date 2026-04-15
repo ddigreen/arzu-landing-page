@@ -6,12 +6,14 @@ import StrategySection from "@/components/StrategySection";
 import ProductsSection from "@/components/ProductsSection";
 import RecipesSection from "@/components/RecipesSection";
 import PartnersSection from "@/components/PartnersSection";
-import EventCalculator from "@/components/EventCalculator";
 import ContactSection from "@/components/ContactSection";
 import StoreMapSection from "@/components/StoreMapSection";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import AnimatedSection from "@/components/AnimatedSection";
+import ParallaxSection from "@/components/ParallaxSection";
+import parallaxWheat1 from "@/assets/parallax-wheat-1.jpg";
+import parallaxWheat2 from "@/assets/parallax-wheat-2.jpg";
 
 const Index = () => {
   return (
@@ -25,9 +27,11 @@ const Index = () => {
         <AnimatedSection>
           <ProductionTimeline />
         </AnimatedSection>
-        <AnimatedSection>
-          <StrategySection />
-        </AnimatedSection>
+        <ParallaxSection image={parallaxWheat1}>
+          <AnimatedSection>
+            <StrategySection />
+          </AnimatedSection>
+        </ParallaxSection>
         <AnimatedSection>
           <ProductsSection />
         </AnimatedSection>
@@ -40,12 +44,11 @@ const Index = () => {
         <AnimatedSection>
           <PartnersSection />
         </AnimatedSection>
-        <AnimatedSection>
-          <EventCalculator />
-        </AnimatedSection>
-        <AnimatedSection>
-          <ContactSection />
-        </AnimatedSection>
+        <ParallaxSection image={parallaxWheat2}>
+          <AnimatedSection>
+            <ContactSection />
+          </AnimatedSection>
+        </ParallaxSection>
       </main>
       <Footer />
       <ScrollToTop />

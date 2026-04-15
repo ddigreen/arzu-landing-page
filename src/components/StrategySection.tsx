@@ -25,19 +25,19 @@ const strategies = [
 
 const StrategySection = () => {
   return (
-    <section id="strategy" className="section-padding bg-background">
+    <section id="strategy" className="section-padding">
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-widest mb-4">
+            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-widest mb-4 bg-primary/10 px-4 py-1 rounded-full">
               Наш подход
             </span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-card mb-6">
               Стратегия и политика
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-card/80 mb-8">
               Наша маркетинговая философия проста:{" "}
-              <strong className="text-foreground">
+              <strong className="text-card">
                 «Качество и ещё раз качество»
               </strong>{" "}
               — доступные цены для каждого без компромиссов в качестве.
@@ -50,14 +50,14 @@ const StrategySection = () => {
                   className="flex items-start gap-4"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
                     <strategy.icon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">
+                    <h3 className="font-semibold text-card mb-1">
                       {strategy.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-card/70">
                       {strategy.description}
                     </p>
                   </div>
@@ -67,29 +67,29 @@ const StrategySection = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-6">
-            <div className="bg-card rounded-2xl p-8 shadow-soft text-center card-hover">
+            <div className="bg-card/10 backdrop-blur-sm rounded-2xl p-8 shadow-soft text-center card-hover border border-card/20">
               <div className="text-5xl font-display font-bold text-primary mb-2">
                 20+
               </div>
-              <div className="text-muted-foreground">Лет опыта</div>
+              <div className="text-card/80">Лет опыта</div>
             </div>
-            <div className="bg-card rounded-2xl p-8 shadow-soft text-center card-hover">
+            <div className="bg-card/10 backdrop-blur-sm rounded-2xl p-8 shadow-soft text-center card-hover border border-card/20">
               <div className="text-5xl font-display font-bold text-primary mb-2">
                 50+
               </div>
-              <div className="text-muted-foreground">Продуктов</div>
+              <div className="text-card/80">Продуктов</div>
             </div>
-            <div className="bg-card rounded-2xl p-8 shadow-soft text-center card-hover">
+            <div className="bg-card/10 backdrop-blur-sm rounded-2xl p-8 shadow-soft text-center card-hover border border-card/20">
               <div className="text-5xl font-display font-bold text-primary mb-2">
                 100+
               </div>
-              <div className="text-muted-foreground">Партнёров</div>
+              <div className="text-card/80">Партнёров</div>
             </div>
-            <div className="bg-card rounded-2xl p-8 shadow-soft text-center card-hover">
+            <div className="bg-card/10 backdrop-blur-sm rounded-2xl p-8 shadow-soft text-center card-hover border border-card/20">
               <div className="text-5xl font-display font-bold text-primary mb-2">
                 4
               </div>
-              <div className="text-muted-foreground">Сертификата ISO</div>
+              <div className="text-card/80">Сертификата ISO</div>
             </div>
           </div>
         </div>
