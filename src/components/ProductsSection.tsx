@@ -216,7 +216,7 @@ const ProductsSection = () => {
             {categories.map((cat) => (
               <button
                 key={cat}
-                onClick={() => setActiveCategory(cat)}
+                onClick={() => { setActiveCategory(cat); setShowAll(false); }}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeCategory === cat
                     ? "bg-primary text-primary-foreground shadow-md"
