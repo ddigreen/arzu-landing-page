@@ -29,15 +29,15 @@ const StrategySection = () => {
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-widest mb-4">
+            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-widest mb-4 bg-primary/10 px-4 py-1 rounded-full">
               Наш подход
             </span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-card mb-6">
               Стратегия и политика
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-card/80 mb-8">
               Наша маркетинговая философия проста:{" "}
-              <strong className="text-foreground">
+              <strong className="text-card">
                 «Качество и ещё раз качество»
               </strong>{" "}
               — доступные цены для каждого без компромиссов в качестве.
@@ -54,10 +54,10 @@ const StrategySection = () => {
                     <strategy.icon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">
+                    <h3 className="font-semibold text-card mb-1">
                       {strategy.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-card/70">
                       {strategy.description}
                     </p>
                   </div>

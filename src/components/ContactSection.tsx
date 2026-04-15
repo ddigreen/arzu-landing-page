@@ -42,16 +42,16 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-accent/30">
+    <section id="contact" className="section-padding">
       <div className="container-wide">
         <div className="text-center mb-16">
-          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-widest mb-4">
+          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-widest mb-4 bg-primary/10 px-4 py-1 rounded-full">
             Связаться с нами
           </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-card mb-6">
             Обратная связь
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-card/80 max-w-2xl mx-auto">
             Есть вопросы о продукции или хотите стать партнёром? Заполните форму, и мы свяжемся с вами.
           </p>
         </div>
