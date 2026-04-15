@@ -14,9 +14,13 @@ import productPremium from "@/assets/product-lagman.jpg";
 import productZhaima30 from "@/assets/product-kespe.jpg";
 import productAstau98 from "@/assets/product-spaghetti.jpg";
 import productAstau18 from "@/assets/product-astau18.jpg";
-import productFlour from "@/assets/product-flour.jpg";
-import productTomatoPasta from "@/assets/product-tomato-pasta.jpg";
-import productManparTagliatelle from "@/assets/product-manpar-tagliatelle.jpg";
+import productFlourPremium from "@/assets/product-flour-premium.jpg";
+import productFlourFirst from "@/assets/product-flour-first.jpg";
+import productLagmanTomato from "@/assets/product-lagman-tomato.jpg";
+import productManparTomato from "@/assets/product-manpar-tomato.jpg";
+import productTaigliaTomato from "@/assets/product-tagliatelle-tomato.jpg";
+import productManpar from "@/assets/product-manpar.jpg";
+import productTagliatelle from "@/assets/product-tagliatelle.jpg";
 
 const products = [
   {
