@@ -85,7 +85,7 @@ const Header = () => {
           </Button>
 
           <button
-            className={`lg:hidden p-2 relative z-50 ${
+            className={`lg:hidden p-2 relative z-[80] ${
               isMobileMenuOpen ? "text-foreground" : isScrolled ? "text-foreground" : "text-card"
             }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -114,7 +114,7 @@ const Header = () => {
 
       {/* Mobile menu overlay */}
       <div
-        className={`fixed inset-0 bg-foreground/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 bg-foreground/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden z-[60] ${
           isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setIsMobileMenuOpen(false)}
@@ -122,7 +122,7 @@ const Header = () => {
 
       {/* Mobile menu panel */}
       <div
-        className={`fixed top-0 right-0 h-full w-72 bg-card shadow-lg transition-transform duration-300 ease-out lg:hidden z-40 ${
+        className={`fixed top-0 right-0 h-full w-72 bg-card shadow-lg transition-transform duration-300 ease-out lg:hidden z-[70] ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
