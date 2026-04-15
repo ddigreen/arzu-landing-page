@@ -14,6 +14,9 @@ import productPremium from "@/assets/product-lagman.jpg";
 import productZhaima30 from "@/assets/product-kespe.jpg";
 import productAstau98 from "@/assets/product-spaghetti.jpg";
 import productAstau18 from "@/assets/product-astau18.jpg";
+import productFlour from "@/assets/product-flour.jpg";
+import productTomatoPasta from "@/assets/product-tomato-pasta.jpg";
+import productManparTagliatelle from "@/assets/product-manpar-tagliatelle.jpg";
 
 const products = [
   {
@@ -25,6 +28,7 @@ const products = [
     image: productZhaima,
     badges: ["Хит продаж"],
     featured: true,
+    category: "Жайма",
     specs: { servings: "2–3 порции", cookTime: "7–9 минут", storage: "12 месяцев", composition: "Мука в/с, вода, соль" },
   },
   {
@@ -36,6 +40,7 @@ const products = [
     image: productClassic,
     badges: ["Семейная"],
     featured: false,
+    category: "Жайма",
     specs: { servings: "6–8 порций", cookTime: "7–9 минут", storage: "12 месяцев", composition: "Мука в/с, вода, соль" },
   },
   {
@@ -47,6 +52,7 @@ const products = [
     image: productPremium,
     badges: ["Премиум"],
     featured: true,
+    category: "Жайма",
     specs: { servings: "6–10 порций", cookTime: "7–9 минут", storage: "12 месяцев", composition: "Мука в/с, вода, яйца, соль" },
   },
   {
@@ -58,6 +64,7 @@ const products = [
     image: productZhaima30,
     badges: ["Опт"],
     featured: false,
+    category: "Жайма",
     specs: { servings: "20–30 порций", cookTime: "7–9 минут", storage: "12 месяцев", composition: "Мука в/с, вода, соль" },
   },
   {
@@ -69,6 +76,7 @@ const products = [
     image: productAstau98,
     badges: ["Традиционная"],
     featured: false,
+    category: "Жайма",
     specs: { servings: "6–12 порций", cookTime: "8–10 минут", storage: "12 месяцев", composition: "Мука в/с, вода, соль" },
   },
   {
@@ -80,12 +88,104 @@ const products = [
     image: productAstau18,
     badges: ["24 порции"],
     featured: true,
+    category: "Жайма",
     specs: { servings: "24 порции", cookTime: "8–10 минут", storage: "12 месяцев", composition: "Мука в/с, вода, соль" },
+  },
+  {
+    id: 7,
+    name: "Арзу Лапша для лагмана с томатом",
+    weight: "300 г",
+    description: "Традиционная пшеничная лапша с томатом для классического лагмана. Упругая текстура, насыщенный вкус",
+    fullDescription: "Лапша для лагмана 300 г — традиционная пшеничная лапша, идеально подходящая для приготовления классического лагмана. Обладает упругой текстурой, хорошо сохраняет форму и отлично впитывает насыщенный соус с мясом и овощами. Подходит для блюд восточной кухни, быстро варится и не разваривается.",
+    image: productTomatoPasta,
+    badges: ["С томатом"],
+    featured: false,
+    category: "Лапша",
+    specs: { servings: "2–3 порции", cookTime: "5–7 минут", storage: "12 месяцев", composition: "Мука в/с, томат, вода, соль" },
+  },
+  {
+    id: 8,
+    name: "Арзу Манпар с томатом",
+    weight: "300 г",
+    description: "Традиционные кусочки теста с добавлением томатов для ароматного манпара",
+    fullDescription: "Манпар с добавлением томатов 300 г — традиционные кусочки теста для приготовления ароматного манпара с насыщенным томатным вкусом. Изготовлены из качественной пшеничной муки с добавлением томатов, что придаёт изделию аппетитный цвет и лёгкую пикантную нотку. Сохраняют форму при варке, обладают упругой текстурой и отлично сочетаются с мясом, овощами и насыщенными бульонами.",
+    image: productManparTagliatelle,
+    badges: ["С томатом"],
+    featured: false,
+    category: "Лапша",
+    specs: { servings: "2–3 порции", cookTime: "5–7 минут", storage: "12 месяцев", composition: "Мука в/с, томат, вода, соль" },
+  },
+  {
+    id: 9,
+    name: "Арзу Тальятелле с томатом",
+    weight: "300 г",
+    description: "Изысканная паста в виде широких лент с натуральным томатным компонентом",
+    fullDescription: "Тальятелле с добавлением томатов 300 г — изысканная паста в виде широких лент с натуральным томатным компонентом, придающим аппетитный оттенок и лёгкую кислинку во вкусе. Изготовлена из муки твёрдых сортов пшеницы, сохраняет плотную текстуру и не разваривается при варке. Идеально подходит для блюд с мясными, овощными и сливочными соусами.",
+    image: productTomatoPasta,
+    badges: ["С томатом"],
+    featured: false,
+    category: "Лапша",
+    specs: { servings: "2–3 порции", cookTime: "5–7 минут", storage: "12 месяцев", composition: "Мука твёрдых сортов, томат, вода, соль" },
+  },
+  {
+    id: 10,
+    name: "Арзу Манпар",
+    weight: "300 г",
+    description: "Традиционные кусочки теста для приготовления ароматного манпара из качественной пшеничной муки",
+    fullDescription: "Манпар 300 г — традиционные кусочки теста для приготовления ароматного манпара. Изготовлены из качественной пшеничной муки. Сохраняют форму при варке, обладают упругой текстурой и отлично сочетаются с мясом, овощами и насыщенными бульонами. Идеально подходят для приготовления сытных блюд восточной кухни в домашних условиях.",
+    image: productManparTagliatelle,
+    badges: ["Классика"],
+    featured: false,
+    category: "Лапша",
+    specs: { servings: "2–3 порции", cookTime: "5–7 минут", storage: "12 месяцев", composition: "Мука в/с, вода, соль" },
+  },
+  {
+    id: 11,
+    name: "Арзу Тальятелле",
+    weight: "300 г",
+    description: "Классическая итальянская паста из твёрдых сортов пшеницы. Плотная текстура, идеально удерживает соусы",
+    fullDescription: "Тальятелле 300 г — классическая итальянская паста в виде длинных плоских лент, изготовленная из твёрдых сортов пшеницы. Обладает плотной текстурой и идеально удерживает соусы — от нежных сливочных до насыщенных мясных. Отлично подходит для приготовления традиционных блюд итальянской кухни и домашней пасты ресторанного уровня.",
+    image: productManparTagliatelle,
+    badges: ["Италия"],
+    featured: false,
+    category: "Лапша",
+    specs: { servings: "2–3 порции", cookTime: "5–7 минут", storage: "12 месяцев", composition: "Мука твёрдых сортов, вода, соль" },
+  },
+  {
+    id: 12,
+    name: "Арзу Мука Высший Сорт",
+    weight: "50/25/10/5/2 кг",
+    description: "Мука пшеничная высшего сорта — продукт тонкого помола из отборной пшеницы с высоким качеством клейковины",
+    fullDescription: "Мука пшеничная высшего сорта — продукт тонкого помола из отборной пшеницы с высоким качеством клейковины. Обладает белоснежным цветом и однородной структурой, обеспечивает отличную пышность и мягкость выпечки. Идеально подходит для приготовления хлеба, сдобы, пирогов, тортов, печенья, блинов и других мучных изделий. Доступные фасовки: 50 кг, 25 кг, 10 кг, 5 кг, 2 кг.",
+    image: productFlour,
+    badges: ["Высший сорт"],
+    featured: true,
+    category: "Мука",
+    specs: { servings: "—", cookTime: "—", storage: "12 месяцев", composition: "Мука пшеничная хлебопекарная высшего сорта" },
+  },
+  {
+    id: 13,
+    name: "Арзу Мука Первый Сорт",
+    weight: "50/25/10/5/2 кг",
+    description: "Мука пшеничная первого сорта — продукт тонкого помола с высоким качеством клейковины для выпечки",
+    fullDescription: "Мука пшеничная первого сорта — продукт тонкого помола из отборной пшеницы с высоким качеством клейковины. Обладает белоснежным цветом и однородной структурой, обеспечивает отличную пышность и мягкость выпечки. Идеально подходит для приготовления хлеба, сдобы, пирогов, тортов, печенья, блинов и других мучных изделий. Доступные фасовки: 50 кг, 25 кг, 10 кг, 5 кг, 2 кг.",
+    image: productFlour,
+    badges: ["Первый сорт"],
+    featured: false,
+    category: "Мука",
+    specs: { servings: "—", cookTime: "—", storage: "12 месяцев", composition: "Мука пшеничная хлебопекарная первого сорта" },
   },
 ];
 
+const categories = ["Все", "Жайма", "Лапша", "Мука"];
+
 const ProductsSection = () => {
   const [selectedProduct, setSelectedProduct] = useState<typeof products[0] | null>(null);
+  const [activeCategory, setActiveCategory] = useState("Все");
+
+  const filteredProducts = activeCategory === "Все"
+    ? products
+    : products.filter((p) => p.category === activeCategory);
 
   return (
     <section id="products" className="section-padding bg-background">
@@ -97,14 +197,30 @@ const ProductsSection = () => {
           <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
             Каталог продукции
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Откройте для себя линейку макаронных изделий премиум-класса,
-            изготовленных из лучших сортов казахстанской пшеницы по традиционным рецептам.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            Откройте для себя линейку макаронных изделий и муки премиум-класса,
+            изготовленных из лучших сортов казахстанской пшеницы.
           </p>
+
+          <div className="flex flex-wrap justify-center gap-3">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  activeCategory === cat
+                    ? "bg-primary text-primary-foreground shadow-md"
+                    : "bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
+          {filteredProducts.map((product, index) => (
             <article
               key={product.id}
               className="group bg-card rounded-2xl overflow-hidden shadow-soft card-hover"
@@ -114,6 +230,7 @@ const ProductsSection = () => {
                 <img
                   src={product.image}
                   alt={product.name}
+                  loading="lazy"
                   className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute top-4 left-4 flex flex-wrap gap-2">
@@ -144,7 +261,7 @@ const ProductsSection = () => {
                 <h3 className="text-xl font-display font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                   {product.name}
                 </h3>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-muted-foreground mb-4 line-clamp-2">
                   {product.description}
                 </p>
                 <Button
