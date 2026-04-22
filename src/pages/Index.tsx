@@ -8,6 +8,10 @@ import RecipesSection from "@/components/RecipesSection";
 import PartnersSection from "@/components/PartnersSection";
 import ContactSection from "@/components/ContactSection";
 import StoreMapSection from "@/components/StoreMapSection";
+import CertificatesSection from "@/components/CertificatesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import FAQSection from "@/components/FAQSection";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -42,7 +46,16 @@ const Index = () => {
           <StoreMapSection />
         </AnimatedSection>
         <AnimatedSection>
+          <CertificatesSection />
+        </AnimatedSection>
+        <AnimatedSection>
+          <TestimonialsSection />
+        </AnimatedSection>
+        <AnimatedSection>
           <PartnersSection />
+        </AnimatedSection>
+        <AnimatedSection>
+          <FAQSection />
         </AnimatedSection>
         <ParallaxSection image={parallaxWheat2}>
           <AnimatedSection>
@@ -51,6 +64,7 @@ const Index = () => {
         </ParallaxSection>
       </main>
       <Footer />
+      <WhatsAppButton />
       <ScrollToTop />
     </div>
   );
