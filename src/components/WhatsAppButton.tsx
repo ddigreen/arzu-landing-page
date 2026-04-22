@@ -10,7 +10,7 @@ const WhatsAppButton = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const phone = "77262466363";
+  const phone = "77769189723";
   const message = encodeURIComponent(
     "Здравствуйте! Хотел(а) бы узнать о продукции Arzu."
   );

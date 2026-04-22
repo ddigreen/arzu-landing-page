@@ -9,8 +9,6 @@ import PartnersSection from "@/components/PartnersSection";
 import ContactSection from "@/components/ContactSection";
 import StoreMapSection from "@/components/StoreMapSection";
 import CertificatesSection from "@/components/CertificatesSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import FAQSection from "@/components/FAQSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -49,13 +47,7 @@ const Index = () => {
           <CertificatesSection />
         </AnimatedSection>
         <AnimatedSection>
-          <TestimonialsSection />
-        </AnimatedSection>
-        <AnimatedSection>
           <PartnersSection />
-        </AnimatedSection>
-        <AnimatedSection>
-          <FAQSection />
         </AnimatedSection>
         <ParallaxSection image={parallaxWheat2}>
           <AnimatedSection>
