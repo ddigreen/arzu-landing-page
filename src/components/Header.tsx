@@ -35,8 +35,8 @@ const Header = () => {
     { name: "Продукция", href: "#products" },
     { name: "Рецепты", href: "#recipes" },
     { name: "Где купить", href: "#store-map" },
-    { name: "Отзывы", href: "#testimonials" },
-    { name: "FAQ", href: "#faq" },
+    { name: "Сертификаты", href: "#certificates" },
+    { name: "Партнёры", href: "#partners" },
   ];
 
   return (
