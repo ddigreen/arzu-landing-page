@@ -64,13 +64,10 @@ const HeroSlider = () => {
             index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
         >
-          <div className="absolute inset-0 bg-charcoal">
-            <img
-              src={slide.image}
-              alt={slide.title || "Arzu"}
-              className="absolute inset-0 w-full h-full object-contain md:object-cover object-center"
-              loading={index === 0 ? "eager" : "lazy"}
-            />
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${slide.image})` }}
+          >
             {!slide.hideText && (
               <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/50 to-charcoal/80" />
             )}
