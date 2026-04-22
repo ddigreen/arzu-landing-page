@@ -32,11 +32,11 @@ const Header = () => {
   const navLinks = [
     { name: "Главная", href: "#home" },
     { name: "О нас", href: "#about" },
-    { name: "Стратегия", href: "#strategy" },
     { name: "Продукция", href: "#products" },
     { name: "Рецепты", href: "#recipes" },
     { name: "Где купить", href: "#store-map" },
-    { name: "Партнёры", href: "#partners" },
+    { name: "Отзывы", href: "#testimonials" },
+    { name: "FAQ", href: "#faq" },
   ];
 
   return (
