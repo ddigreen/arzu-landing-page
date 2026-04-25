@@ -134,6 +134,10 @@ const ContactSection = () => {
                     <a href="tel:+77273505050" className="text-muted-foreground hover:text-primary transition-colors">
                       +7 (727) 350-50-50
                     </a>
+                    <br />
+                    <a href="tel:+87769189723" className="text-muted-foreground hover:text-primary transition-colors">
+                      +7 (776) 918-97-23
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -145,6 +149,10 @@ const ContactSection = () => {
                     <a href="mailto:info@arzu.kz" className="text-muted-foreground hover:text-primary transition-colors">
                       info@arzu.kz
                     </a>
+                    <br />
+                    <a href="mailto:ta-mak.kz@mail.ru" className="text-muted-foreground hover:text-primary transition-colors">
+                      ta-mak.kz@mail.ru
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -154,7 +162,7 @@ const ContactSection = () => {
                   <div>
                     <p className="font-medium text-foreground">Адрес</p>
                     <p className="text-muted-foreground">
-                      Казахстан, г. Алматы
+                      г. Тараз, ул. Сорокина, 1В
                     </p>
                   </div>
                 </div>
