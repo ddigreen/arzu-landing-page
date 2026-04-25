@@ -1,4 +1,4 @@
-import { Award, ShieldCheck, Leaf, Globe } from "lucide-react";
+import { Award, ShieldCheck, Globe } from "lucide-react";
 
 const certificates = [
   {
@@ -10,11 +10,6 @@ const certificates = [
     icon: Award,
     title: "ISO 22000-2005",
     description: "Безопасность пищевой продукции на всех этапах производства",
-  },
-  {
-    icon: Leaf,
-    title: "Халяль MS 1500-2004",
-    description: "Продукция полностью соответствует исламским стандартам",
   },
   {
     icon: Globe,
@@ -40,7 +35,7 @@ const CertificatesSection = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {certificates.map((cert, index) => (
             <div
               key={cert.title}
