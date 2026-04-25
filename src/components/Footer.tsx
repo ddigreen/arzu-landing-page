@@ -89,27 +89,25 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                 <span className="text-card/70">
-                  Жамбылская область, Казахстан
-                  <br />
                   г. Тараз, ул. Сорокина, 1В
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
                 <a
-                  href="tel:+77262466363"
+                  href="tel:+87769189723"
                   className="text-card/70 hover:text-primary transition-colors"
                 >
-                  +7 (7262) 46 63 63
+                  +7 (776) 918-97-23
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
                 <a
-                  href="mailto:info@arzu.kz"
+                  href="mailto:ta-mak.kz@mail.ru"
                   className="text-card/70 hover:text-primary transition-colors"
                 >
-                  info@arzu.kz
+                  ta-mak.kz@mail.ru
                 </a>
               </li>
             </ul>
