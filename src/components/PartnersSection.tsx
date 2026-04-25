@@ -1,12 +1,13 @@
 import { Building2 } from "lucide-react";
 
 const partners = [
-  { name: "FoodCorp Kazakhstan", type: "Дистрибьютор" },
-  { name: "National Culinary Union", type: "Ассоциация" },
-  { name: "Local Markets LLC", type: "Розница" },
-  { name: "Magnum Cash & Carry", type: "Розница" },
-  { name: "Small Wholesale", type: "Опт" },
+  { name: "Small", type: "Розница" },
+  { name: "Тоймарт", type: "Розница" },
+  { name: "Magnum", type: "Розница" },
   { name: "Galmart", type: "Розница" },
+  { name: "Firkan", type: "Розница" },
+  { name: "Вкусная корзинка", type: "Розница" },
+  { name: "Gromada", type: "Розница" },
 ];
 
 const PartnersSection = () => {
