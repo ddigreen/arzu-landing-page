@@ -1,111 +1,345 @@
 import { useState } from "react";
-import { MapPin, Phone, Clock } from "lucide-react";
+import { MapPin, Store, Users, Globe2 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const cities = [
+type Partner = { name: string; outlets: string };
+type City = {
+  id: number;
+  name: string;
+  country: "KZ" | "UZ" | "KG" | "RU" | "DE";
+  region?: string;
+  partners: Partner[];
+  totalOutlets: number;
+  position: { top: string; left: string };
+};
+
+// Source: Список контрагентов на 05.01.2026 г (ТОО «Та-Мак», фабрика Arzu)
+const cities: City[] = [
   {
     id: 1,
-    name: "Алматы",
-    stores: 12,
-    phone: "+7 (727) 350-50-50",
-    hours: "09:00 – 20:00",
-    position: { top: "62%", left: "72%" },
-    featured: true,
+    name: "Тараз",
+    country: "KZ",
+    partners: [
+      { name: "ТОО «Артемида Тараз»", outlets: "2 500" },
+      { name: "ТОО «Фиркан сети»", outlets: "24" },
+      { name: "ТОО «В/К сети»", outlets: "49" },
+      { name: "ИП Джанабекова", outlets: "1" },
+      { name: "ТОО «АсЭко»", outlets: "1" },
+      { name: "ИП Рыскалова (Каспий магазин)", outlets: "1" },
+    ],
+    totalOutlets: 2576,
+    position: { top: "72%", left: "55%" },
   },
   {
     id: 2,
-    name: "Астана",
-    stores: 8,
-    phone: "+7 (717) 250-30-30",
-    hours: "09:00 – 20:00",
-    position: { top: "35%", left: "58%" },
-    featured: true,
+    name: "Шымкент",
+    country: "KZ",
+    partners: [{ name: "ТОО «Pilot»", outlets: "3 000" }],
+    totalOutlets: 3000,
+    position: { top: "76%", left: "52%" },
   },
   {
     id: 3,
-    name: "Шымкент",
-    stores: 6,
-    phone: "+7 (725) 100-20-20",
-    hours: "09:00 – 19:00",
-    position: { top: "75%", left: "52%" },
-    featured: false,
+    name: "Туркестан",
+    country: "KZ",
+    partners: [{ name: "ТОО «ИЖБ»", outlets: "1 000" }],
+    totalOutlets: 1000,
+    position: { top: "73%", left: "48%" },
   },
   {
     id: 4,
-    name: "Караганда",
-    stores: 5,
-    phone: "+7 (721) 300-40-40",
-    hours: "09:00 – 19:00",
-    position: { top: "42%", left: "60%" },
-    featured: false,
+    name: "Кызылорда",
+    country: "KZ",
+    partners: [{ name: "ТОО «Дара Кызылорда»", outlets: "3 500" }],
+    totalOutlets: 3500,
+    position: { top: "62%", left: "38%" },
   },
   {
     id: 5,
     name: "Актобе",
-    stores: 4,
-    phone: "+7 (713) 200-10-10",
-    hours: "09:00 – 19:00",
-    position: { top: "45%", left: "32%" },
-    featured: false,
+    country: "KZ",
+    partners: [{ name: "ТОО «Анвар»", outlets: "62 маркета" }],
+    totalOutlets: 62,
+    position: { top: "42%", left: "28%" },
   },
   {
     id: 6,
-    name: "Павлодар",
-    stores: 3,
-    phone: "+7 (718) 400-50-50",
-    hours: "09:00 – 18:00",
-    position: { top: "28%", left: "65%" },
-    featured: false,
+    name: "Алматы",
+    country: "KZ",
+    partners: [
+      { name: "ТОО «Тоймарт»", outlets: "41" },
+      { name: "ТОО «Small»", outlets: "156" },
+      { name: "ESC Trade Company", outlets: "6 000" },
+      { name: "ТОО «Arbuz Group» (маркетплейс)", outlets: "—" },
+      { name: "ТОО «Улан трейд»", outlets: "—" },
+    ],
+    totalOutlets: 6197,
+    position: { top: "70%", left: "75%" },
   },
   {
     id: 7,
-    name: "Атырау",
-    stores: 3,
-    phone: "+7 (712) 300-60-60",
-    hours: "09:00 – 18:00",
-    position: { top: "55%", left: "18%" },
-    featured: false,
+    name: "Астана",
+    country: "KZ",
+    partners: [
+      { name: "ТОО «Тауык хаус»", outlets: "4 000" },
+      { name: "ТОО «Максат трейд»", outlets: "—" },
+    ],
+    totalOutlets: 4000,
+    position: { top: "32%", left: "58%" },
   },
   {
     id: 8,
-    name: "Тараз",
-    stores: 4,
-    phone: "+7 (726) 200-70-70",
-    hours: "09:00 – 19:00",
-    position: { top: "70%", left: "58%" },
-    featured: false,
+    name: "Актау",
+    country: "KZ",
+    partners: [{ name: "ТОО «Кобзал»", outlets: "1 500" }],
+    totalOutlets: 1500,
+    position: { top: "62%", left: "12%" },
+  },
+  {
+    id: 9,
+    name: "Атырау",
+    country: "KZ",
+    partners: [{ name: "ТОО «Казына Атырау»", outlets: "2 500" }],
+    totalOutlets: 2500,
+    position: { top: "52%", left: "16%" },
+  },
+  {
+    id: 10,
+    name: "Костанай",
+    country: "KZ",
+    partners: [{ name: "ТОО «Максат трейд»", outlets: "1 766" }],
+    totalOutlets: 1766,
+    position: { top: "22%", left: "42%" },
+  },
+  {
+    id: 11,
+    name: "Кокшетау",
+    country: "KZ",
+    partners: [{ name: "ТОО «Максат трейд»", outlets: "1 427" }],
+    totalOutlets: 1427,
+    position: { top: "22%", left: "52%" },
+  },
+  {
+    id: 12,
+    name: "Петропавловск",
+    country: "KZ",
+    partners: [{ name: "ТОО «Максат трейд»", outlets: "757" }],
+    totalOutlets: 757,
+    position: { top: "16%", left: "55%" },
+  },
+  {
+    id: 13,
+    name: "Павлодар",
+    country: "KZ",
+    partners: [
+      { name: "ТОО «Парма М»", outlets: "1 200" },
+      { name: "ТОО «Интерфуд»", outlets: "—" },
+    ],
+    totalOutlets: 1200,
+    position: { top: "26%", left: "68%" },
+  },
+  {
+    id: 14,
+    name: "Усть-Каменогорск, Семей",
+    country: "KZ",
+    region: "ВКО",
+    partners: [{ name: "ТОО «Юкон Трейд»", outlets: "1 500" }],
+    totalOutlets: 1500,
+    position: { top: "34%", left: "82%" },
+  },
+  {
+    id: 15,
+    name: "Караганда",
+    country: "KZ",
+    partners: [
+      { name: "ТОО «Трояна»", outlets: "2 500" },
+      { name: "ТОО «Жалгас Трейд»", outlets: "—" },
+    ],
+    totalOutlets: 2500,
+    position: { top: "42%", left: "58%" },
+  },
+  {
+    id: 16,
+    name: "Уральск",
+    country: "KZ",
+    partners: [{ name: "ИП «Алем Foods»", outlets: "1 300" }],
+    totalOutlets: 1300,
+    position: { top: "38%", left: "18%" },
+  },
+  {
+    id: 17,
+    name: "Балхаш",
+    country: "KZ",
+    partners: [{ name: "ИП Парпиев опт", outlets: "100" }],
+    totalOutlets: 100,
+    position: { top: "52%", left: "62%" },
+  },
+  {
+    id: 18,
+    name: "Ташкент",
+    country: "UZ",
+    partners: [{ name: "ООО «Тимур Савдо Инвест»", outlets: "5 000" }],
+    totalOutlets: 5000,
+    position: { top: "82%", left: "44%" },
+  },
+  {
+    id: 19,
+    name: "Талас",
+    country: "KG",
+    partners: [{ name: "ИП Мадиярбек уулу", outlets: "500" }],
+    totalOutlets: 500,
+    position: { top: "78%", left: "60%" },
+  },
+  {
+    id: 20,
+    name: "Бишкек",
+    country: "KG",
+    partners: [{ name: "ОсОО «Байболат Групп»", outlets: "1 000" }],
+    totalOutlets: 1000,
+    position: { top: "76%", left: "66%" },
+  },
+  {
+    id: 21,
+    name: "Орск",
+    country: "RU",
+    partners: [{ name: "ТОО «Данабаев М.Е.»", outlets: "1 500" }],
+    totalOutlets: 1500,
+    position: { top: "30%", left: "20%" },
+  },
+  {
+    id: 22,
+    name: "Оренбург",
+    country: "RU",
+    partners: [{ name: "ИП Жанжигитов", outlets: "1 500" }],
+    totalOutlets: 1500,
+    position: { top: "26%", left: "24%" },
+  },
+  {
+    id: 23,
+    name: "Германия",
+    country: "DE",
+    partners: [
+      { name: "Lackmann Fleisch- und Feinkostfabrik GmbH", outlets: "5 000" },
+    ],
+    totalOutlets: 5000,
+    position: { top: "12%", left: "8%" },
   },
 ];
 
+const countryFlags: Record<City["country"], string> = {
+  KZ: "🇰🇿",
+  UZ: "🇺🇿",
+  KG: "🇰🇬",
+  RU: "🇷🇺",
+  DE: "🇩🇪",
+};
+
+const countryNames: Record<City["country"], string> = {
+  KZ: "Казахстан",
+  UZ: "Узбекистан",
+  KG: "Кыргызстан",
+  RU: "Россия",
+  DE: "Германия",
+};
+
+const totalOutlets = cities.reduce((sum, c) => sum + c.totalOutlets, 0);
+const totalPartners = cities.reduce((sum, c) => sum + c.partners.length, 0);
+const totalCountries = new Set(cities.map((c) => c.country)).size;
+
 const StoreMapSection = () => {
-  const [selectedCity, setSelectedCity] = useState(cities[0]);
+  const [selectedCity, setSelectedCity] = useState<City>(cities[0]);
+  const [filterCountry, setFilterCountry] = useState<City["country"] | "ALL">(
+    "ALL"
+  );
   const { ref, isVisible } = useScrollAnimation();
+
+  const filteredCities =
+    filterCountry === "ALL"
+      ? cities
+      : cities.filter((c) => c.country === filterCountry);
+
+  const countries: (City["country"] | "ALL")[] = [
+    "ALL",
+    "KZ",
+    "UZ",
+    "KG",
+    "RU",
+    "DE",
+  ];
 
   return (
     <section id="stores" className="section-padding bg-background">
       <div className="container-wide">
         <div
           ref={ref}
-          className={`text-center mb-16 transition-all duration-700 ${
+          className={`text-center mb-12 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-widest mb-4">
-            Где купить
+            География поставок
           </span>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
-            Точки продаж
+            Где купить продукцию Arzu
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Продукция Arzu и Астау доступна в крупнейших торговых сетях по всему Казахстану
+            Наши партнёры обеспечивают поставки продукции в крупнейшие торговые
+            сети Казахстана и стран ближнего и дальнего зарубежья
           </p>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto mb-12">
+          <div className="bg-card rounded-2xl p-5 text-center shadow-soft border border-border/50">
+            <Store className="w-6 h-6 text-primary mx-auto mb-2" />
+            <div className="text-2xl md:text-3xl font-display font-bold text-foreground">
+              {totalOutlets.toLocaleString("ru-RU")}+
+            </div>
+            <div className="text-xs md:text-sm text-muted-foreground">
+              торговых точек
+            </div>
+          </div>
+          <div className="bg-card rounded-2xl p-5 text-center shadow-soft border border-border/50">
+            <Users className="w-6 h-6 text-primary mx-auto mb-2" />
+            <div className="text-2xl md:text-3xl font-display font-bold text-foreground">
+              {totalPartners}
+            </div>
+            <div className="text-xs md:text-sm text-muted-foreground">
+              партнёров-дистрибьюторов
+            </div>
+          </div>
+          <div className="bg-card rounded-2xl p-5 text-center shadow-soft border border-border/50">
+            <Globe2 className="w-6 h-6 text-primary mx-auto mb-2" />
+            <div className="text-2xl md:text-3xl font-display font-bold text-foreground">
+              {totalCountries}
+            </div>
+            <div className="text-xs md:text-sm text-muted-foreground">
+              страны присутствия
+            </div>
+          </div>
+        </div>
+
+        {/* Country filter */}
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {countries.map((c) => (
+            <button
+              key={c}
+              onClick={() => setFilterCountry(c)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                filterCountry === c
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-accent text-foreground hover:bg-accent/70"
+              }`}
+            >
+              {c === "ALL" ? "Все страны" : `${countryFlags[c]} ${countryNames[c]}`}
+            </button>
+          ))}
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Map */}
           <div className="lg:col-span-2 bg-card rounded-2xl shadow-soft p-6 relative">
             <div className="relative aspect-[16/10] bg-accent/30 rounded-xl overflow-hidden">
-              {/* Kazakhstan outline SVG */}
               <svg
                 viewBox="0 0 800 450"
                 className="w-full h-full"
@@ -119,7 +353,6 @@ const StoreMapSection = () => {
                   strokeWidth="2"
                   opacity="0.6"
                 />
-                {/* Grid lines */}
                 <line x1="0" y1="112" x2="800" y2="112" stroke="hsl(var(--border))" strokeWidth="0.5" strokeDasharray="4" />
                 <line x1="0" y1="225" x2="800" y2="225" stroke="hsl(var(--border))" strokeWidth="0.5" strokeDasharray="4" />
                 <line x1="0" y1="337" x2="800" y2="337" stroke="hsl(var(--border))" strokeWidth="0.5" strokeDasharray="4" />
@@ -128,8 +361,7 @@ const StoreMapSection = () => {
                 <line x1="600" y1="0" x2="600" y2="450" stroke="hsl(var(--border))" strokeWidth="0.5" strokeDasharray="4" />
               </svg>
 
-              {/* City pins */}
-              {cities.map((city) => (
+              {filteredCities.map((city) => (
                 <button
                   key={city.id}
                   onClick={() => setSelectedCity(city)}
@@ -140,7 +372,7 @@ const StoreMapSection = () => {
                   aria-label={city.name}
                 >
                   <MapPin
-                    className={`h-7 w-7 drop-shadow-md transition-colors ${
+                    className={`h-6 w-6 drop-shadow-md transition-colors ${
                       selectedCity.id === city.id
                         ? "text-secondary fill-secondary/20"
                         : "text-primary fill-primary/20"
@@ -160,45 +392,69 @@ const StoreMapSection = () => {
             </div>
           </div>
 
-          {/* City info */}
+          {/* Selected city info */}
           <div className="flex flex-col gap-4">
-            {/* Selected city detail */}
             <div className="bg-card rounded-2xl shadow-soft p-6 border-l-4 border-primary">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-2xl">{countryFlags[selectedCity.country]}</span>
+                <span className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">
+                  {countryNames[selectedCity.country]}
+                  {selectedCity.region ? ` · ${selectedCity.region}` : ""}
+                </span>
+              </div>
               <h3 className="text-2xl font-display font-bold text-foreground mb-4">
                 {selectedCity.name}
               </h3>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 text-muted-foreground">
-                  <MapPin className="h-4 w-4 text-primary flex-shrink-0" />
-                  <span>{selectedCity.stores} торговых точек</span>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+                <Store className="h-4 w-4 text-primary" />
+                <span>
+                  Свыше{" "}
+                  <strong className="text-foreground">
+                    {selectedCity.totalOutlets.toLocaleString("ru-RU")}
+                  </strong>{" "}
+                  торговых точек
+                </span>
+              </div>
+              <div className="space-y-2">
+                <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-2">
+                  Партнёры
                 </div>
-                <div className="flex items-center gap-3 text-muted-foreground">
-                  <Phone className="h-4 w-4 text-primary flex-shrink-0" />
-                  <span>{selectedCity.phone}</span>
-                </div>
-                <div className="flex items-center gap-3 text-muted-foreground">
-                  <Clock className="h-4 w-4 text-primary flex-shrink-0" />
-                  <span>{selectedCity.hours}</span>
-                </div>
+                {selectedCity.partners.map((p) => (
+                  <div
+                    key={p.name}
+                    className="flex items-start justify-between gap-3 text-sm border-b border-border/50 last:border-0 pb-2 last:pb-0"
+                  >
+                    <span className="text-foreground">{p.name}</span>
+                    <span className="text-primary font-semibold whitespace-nowrap">
+                      {p.outlets}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* City list */}
-            <div className="bg-card rounded-2xl shadow-soft p-6 flex-1">
-              <h4 className="font-semibold text-foreground mb-3">Все города</h4>
-              <div className="space-y-2">
-                {cities.map((city) => (
+            <div className="bg-card rounded-2xl shadow-soft p-6 flex-1 max-h-96 overflow-y-auto">
+              <h4 className="font-semibold text-foreground mb-3 sticky top-0 bg-card pb-2">
+                Все локации
+              </h4>
+              <div className="space-y-1">
+                {filteredCities.map((city) => (
                   <button
                     key={city.id}
                     onClick={() => setSelectedCity(city)}
-                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
+                    className={`w-full flex items-center justify-between gap-2 px-3 py-2 rounded-lg text-sm transition-colors ${
                       selectedCity.id === city.id
                         ? "bg-primary/10 text-primary font-semibold"
                         : "text-muted-foreground hover:bg-accent hover:text-foreground"
                     }`}
                   >
-                    <span>{city.name}</span>
-                    <span className="text-xs">{city.stores} точек</span>
+                    <span className="flex items-center gap-2 truncate">
+                      <span className="text-xs">{countryFlags[city.country]}</span>
+                      <span className="truncate">{city.name}</span>
+                    </span>
+                    <span className="text-xs whitespace-nowrap">
+                      {city.totalOutlets.toLocaleString("ru-RU")}
+                    </span>
                   </button>
                 ))}
               </div>
