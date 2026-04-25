@@ -1,4 +1,4 @@
-import { Award, ShieldCheck, Leaf, Globe } from "lucide-react";
+import { Award, ShieldCheck, Globe } from "lucide-react";
 
 const certificates = [
   {
@@ -10,11 +10,6 @@ const certificates = [
     icon: Award,
     title: "ISO 22000-2005",
     description: "Безопасность пищевой продукции на всех этапах производства",
-  },
-  {
-    icon: Leaf,
-    title: "Халяль MS 1500-2004",
-    description: "Продукция полностью соответствует исламским стандартам",
   },
   {
     icon: Globe,
