@@ -17,7 +17,7 @@ import productAstau18 from "@/assets/product-astau18.jpg";
 import productFlourPremium from "@/assets/product-flour-premium.jpg";
 import productFlourFirst from "@/assets/product-flour-first.jpg";
 import productLagmanTomato from "@/assets/product-lagman-tomato.jpg";
-import productManparTomato from "@/assets/product-manpar-tomato.jpg";
+
 import productTaigliaTomato from "@/assets/product-tagliatelle-tomato.jpg";
 import productManpar from "@/assets/product-manpar.jpg";
 import productTagliatelle from "@/assets/product-tagliatelle.jpg";
@@ -102,18 +102,6 @@ const products = [
     description: "Традиционная пшеничная лапша с томатом для классического лагмана. Упругая текстура, насыщенный вкус",
     fullDescription: "Лапша для лагмана 300 г — традиционная пшеничная лапша, идеально подходящая для приготовления классического лагмана. Обладает упругой текстурой, хорошо сохраняет форму и отлично впитывает насыщенный соус с мясом и овощами. Подходит для блюд восточной кухни, быстро варится и не разваривается.",
     image: productLagmanTomato,
-    badges: ["С томатом"],
-    featured: false,
-    category: "Лапша",
-    specs: { servings: "2–3 порции", cookTime: "5–7 минут", storage: "12 месяцев", composition: "Мука в/с, томат, вода, соль" },
-  },
-  {
-    id: 8,
-    name: "Арзу Манпар с томатом",
-    weight: "300 г",
-    description: "Традиционные кусочки теста с добавлением томатов для ароматного манпара",
-    fullDescription: "Манпар с добавлением томатов 300 г — традиционные кусочки теста для приготовления ароматного манпара с насыщенным томатным вкусом. Изготовлены из качественной пшеничной муки с добавлением томатов, что придаёт изделию аппетитный цвет и лёгкую пикантную нотку. Сохраняют форму при варке, обладают упругой текстурой и отлично сочетаются с мясом, овощами и насыщенными бульонами.",
-    image: productManparTomato,
     badges: ["С томатом"],
     featured: false,
     category: "Лапша",
