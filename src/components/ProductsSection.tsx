@@ -17,7 +17,7 @@ import productAstau18 from "@/assets/product-astau18.jpg";
 import productFlourPremium from "@/assets/product-flour-premium.jpg";
 import productFlourFirst from "@/assets/product-flour-first.jpg";
 import productLagmanTomato from "@/assets/product-lagman-tomato.jpg";
-import productManparTomato from "@/assets/product-manpar-tomato.jpg";
+
 import productTaigliaTomato from "@/assets/product-tagliatelle-tomato.jpg";
 import productManpar from "@/assets/product-manpar.jpg";
 import productTagliatelle from "@/assets/product-tagliatelle.jpg";
