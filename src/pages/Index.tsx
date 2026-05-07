@@ -20,7 +20,6 @@ import parallaxWheat2 from "@/assets/parallax-wheat-2.jpg";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <ScrollProgress />
       <Header />
       <main>
         <HeroSlider />
