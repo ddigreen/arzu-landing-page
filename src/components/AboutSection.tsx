@@ -89,10 +89,10 @@ const AboutSection = () => {
                   Телефон:
                 </span>
                 <a
-                  href="tel:+77262466363"
+                  href="tel:+77769189723"
                   className="text-primary hover:underline"
                 >
-                  +7 (7262) 46 63 63
+                  +7 (776) 918-97-23
                 </a>
               </li>
               <li className="flex items-start gap-3">
