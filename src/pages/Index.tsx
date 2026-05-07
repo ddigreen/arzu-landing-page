@@ -26,9 +26,7 @@ const Index = () => {
         <AnimatedSection>
           <AboutSection />
         </AnimatedSection>
-        <AnimatedSection>
-          <ProductionTimeline />
-        </AnimatedSection>
+        <ProductionTimeline />
         <ParallaxSection image={parallaxWheat1}>
           <AnimatedSection>
             <StrategySection />
