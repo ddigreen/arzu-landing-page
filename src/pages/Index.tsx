@@ -12,6 +12,7 @@ import CertificatesSection from "@/components/CertificatesSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import ScrollProgress from "@/components/ScrollProgress";
 import AnimatedSection from "@/components/AnimatedSection";
 import ParallaxSection from "@/components/ParallaxSection";
 import parallaxWheat1 from "@/assets/parallax-wheat-1.jpg";
@@ -20,6 +21,7 @@ import parallaxWheat2 from "@/assets/parallax-wheat-2.jpg";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <ScrollProgress />
       <Header />
       <main>
         <HeroSlider />

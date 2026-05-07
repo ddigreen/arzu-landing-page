@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +40,26 @@ const Header = () => {
     { name: "Партнёры", href: "#partners" },
   ];
 
+  // Track active section via IntersectionObserver
+  useEffect(() => {
+    const ids = navLinks.map((l) => l.href.slice(1));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActiveSection(visible.target.id);
+      },
+      { rootMargin: "-40% 0px -50% 0px", threshold: [0, 0.25, 0.5, 1] }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -57,21 +78,27 @@ const Header = () => {
           </a>
 
           <ul className="hidden lg:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <a
-                  href={link.href}
-                  className={`font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full ${
-                    isScrolled
-                      ? "text-foreground/80 hover:text-primary"
-                      : "text-card/90 hover:text-primary"
-                  }`}
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.slice(1);
+              return (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className={`font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 ${
+                      isActive ? "after:w-full" : "after:w-0 hover:after:w-full"
+                    } ${
+                      isScrolled
+                        ? `${isActive ? "text-primary" : "text-foreground/80"} hover:text-primary`
+                        : `${isActive ? "text-primary" : "text-card/90"} hover:text-primary`
+                    }`}
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
+
 
           <Button
             className="hidden lg:inline-flex btn-secondary"
