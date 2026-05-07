@@ -33,7 +33,7 @@ const products = [
     badges: ["Хит продаж"],
     featured: true,
     category: "Жайма",
-    specs: { servings: "2–3 порции", cookTime: "7–9 минут", storage: "12 месяцев", composition: "Мука в/с, вода, соль" },
+    specs: { servings: "2–3 порции", cookTime: "7–9 минут", storage: "24 месяцев", composition: "Мука в/с, вода, соль" },
   },
   {
     id: 2,
@@ -45,7 +45,7 @@ const products = [
     badges: ["Семейная"],
     featured: false,
     category: "Жайма",
-    specs: { servings: "6–8 порций", cookTime: "7–9 минут", storage: "12 месяцев", composition: "Мука в/с, вода, соль" },
+    specs: { servings: "6–8 порций", cookTime: "7–9 минут", storage: "24 месяцев", composition: "Мука в/с, вода, соль" },
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ const products = [
     badges: ["Премиум"],
     featured: true,
     category: "Жайма",
-    specs: { servings: "6–10 порций", cookTime: "7–9 минут", storage: "12 месяцев", composition: "Мука в/с, вода, яйца, соль" },
+    specs: { servings: "6–10 порций", cookTime: "7–9 минут", storage: "24 месяцев", composition: "Мука в/с, вода, яйца, соль" },
   },
   {
     id: 4,
@@ -69,7 +69,7 @@ const products = [
     badges: ["Опт"],
     featured: false,
     category: "Жайма",
-    specs: { servings: "20–30 порций", cookTime: "7–9 минут", storage: "12 месяцев", composition: "Мука в/с, вода, соль" },
+    specs: { servings: "20–30 порций", cookTime: "7–9 минут", storage: "24 месяцев", composition: "Мука в/с, вода, соль" },
   },
   {
     id: 5,
@@ -81,7 +81,7 @@ const products = [
     badges: ["Традиционная"],
     featured: false,
     category: "Жайма",
-    specs: { servings: "6–12 порций", cookTime: "8–10 минут", storage: "12 месяцев", composition: "Мука в/с, вода, соль" },
+    specs: { servings: "6–12 порций", cookTime: "8–10 минут", storage: "24 месяцев", composition: "Мука в/с, вода, соль" },
   },
   {
     id: 6,
@@ -93,7 +93,7 @@ const products = [
     badges: ["24 порции"],
     featured: true,
     category: "Жайма",
-    specs: { servings: "24 порции", cookTime: "8–10 минут", storage: "12 месяцев", composition: "Мука в/с, вода, соль" },
+    specs: { servings: "24 порции", cookTime: "8–10 минут", storage: "24 месяцев", composition: "Мука в/с, вода, соль" },
   },
   {
     id: 7,
@@ -105,7 +105,7 @@ const products = [
     badges: ["С томатом"],
     featured: false,
     category: "Лапша",
-    specs: { servings: "2–3 порции", cookTime: "5–7 минут", storage: "12 месяцев", composition: "Мука в/с, томат, вода, соль" },
+    specs: { servings: "2–3 порции", cookTime: "5–7 минут", storage: "24 месяцев", composition: "Мука в/с, томат, вода, соль" },
   },
   {
     id: 9,
@@ -117,7 +117,7 @@ const products = [
     badges: ["С томатом"],
     featured: false,
     category: "Лапша",
-    specs: { servings: "2–3 порции", cookTime: "5–7 минут", storage: "12 месяцев", composition: "Мука твёрдых сортов, томат, вода, соль" },
+    specs: { servings: "2–3 порции", cookTime: "5–7 минут", storage: "24 месяцев", composition: "Мука твёрдых сортов, томат, вода, соль" },
   },
   {
     id: 10,
@@ -129,7 +129,7 @@ const products = [
     badges: ["Классика"],
     featured: false,
     category: "Лапша",
-    specs: { servings: "2–3 порции", cookTime: "5–7 минут", storage: "12 месяцев", composition: "Мука в/с, вода, соль" },
+    specs: { servings: "2–3 порции", cookTime: "5–7 минут", storage: "24 месяцев", composition: "Мука в/с, вода, соль" },
   },
   {
     id: 11,
@@ -141,7 +141,7 @@ const products = [
     badges: ["Италия"],
     featured: false,
     category: "Лапша",
-    specs: { servings: "2–3 порции", cookTime: "5–7 минут", storage: "12 месяцев", composition: "Мука твёрдых сортов, вода, соль" },
+    specs: { servings: "2–3 порции", cookTime: "5–7 минут", storage: "24 месяцев", composition: "Мука твёрдых сортов, вода, соль" },
   },
   {
     id: 12,
@@ -153,7 +153,7 @@ const products = [
     badges: ["Высший сорт"],
     featured: true,
     category: "Мука",
-    specs: { servings: "—", cookTime: "—", storage: "12 месяцев", composition: "Мука пшеничная хлебопекарная высшего сорта" },
+    specs: { servings: "—", cookTime: "—", storage: "24 месяцев", composition: "Мука пшеничная хлебопекарная высшего сорта" },
   },
   {
     id: 13,
@@ -165,7 +165,7 @@ const products = [
     badges: ["Первый сорт"],
     featured: false,
     category: "Мука",
-    specs: { servings: "—", cookTime: "—", storage: "12 месяцев", composition: "Мука пшеничная хлебопекарная первого сорта" },
+    specs: { servings: "—", cookTime: "—", storage: "24 месяцев", composition: "Мука пшеничная хлебопекарная первого сорта" },
   },
 ];
 
