@@ -131,18 +131,18 @@ const HeroSlider = () => {
       ))}
 
       <button
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-primary/80 text-primary-foreground flex items-center justify-center hover:bg-primary transition-colors shadow-medium"
+        className="group absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 p-3 text-card/70 hover:text-primary transition-all duration-300 hover:-translate-x-1"
         onClick={() => { setIsAutoPlaying(false); prevSlide(); }}
         aria-label="Предыдущий слайд"
       >
-        <ChevronLeft size={24} />
+        <ChevronLeft size={48} strokeWidth={1.5} className="drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]" />
       </button>
       <button
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-primary/80 text-primary-foreground flex items-center justify-center hover:bg-primary transition-colors shadow-medium"
+        className="group absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 p-3 text-card/70 hover:text-primary transition-all duration-300 hover:translate-x-1"
         onClick={() => { setIsAutoPlaying(false); nextSlide(); }}
         aria-label="Следующий слайд"
       >
-        <ChevronRight size={24} />
+        <ChevronRight size={48} strokeWidth={1.5} className="drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]" />
       </button>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
